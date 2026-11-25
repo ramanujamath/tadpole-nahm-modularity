@@ -1,0 +1,89 @@
+\subsection{Even rank: the first companions}\label{subsec:evenproof}
+The argument of \cref{sec:theta,sec:boundary,sec:cert} transfers to the sector (i) of \cref{conj:even}, with the type-C identity of Bartlett and Warnaar replaced by its type-B companion. Throughout, $r=2m$, $L=2m+2$, $\nu=m(2m-1)$ and $w=q^{1/2}$. For generic $\hat x=(x_1,\dots,x_{m-1})$ put $x=(\hat x,1)$; thus $x_m=1$ is frozen. Define
+\[
+\HL^B_m(t;\hat x;q)=\sum_{\lambda:\ \lambda_1\le2}q^{|\lambda|/2}\,t^{m_1(\lambda)}\,P'_\lambda(x_1,x_1^{-1},\dots,x_{m-1},x_{m-1}^{-1},1;q),
+\]
+a sum over Hall--Littlewood functions in $2m-1$ letters, in which the letter $1$ occurs once. Let
+\begin{gather*}
+\mu^-_x[f]=\sum_{\ell\in\Z}(-1)^\ell q^{L\ell^2/2}x^{L\ell}f(xq^\ell),\\
+\Phi^+_a(x)=\mu^-_x[y^a+y^{-a}],\qquad \Psi^+_a(x)=\mu^-_x\Bigl[\frac{y^a+y^{-a}}{1+w^2+w(y+y^{-1})}\Bigr],
+\end{gather*}
+let $\delta^+_\varepsilon(x)=\det\bigl(x_i^{j-1+\varepsilon}+x_i^{-(j-1+\varepsilon)}\bigr)_{i,j=1}^m$ for $\varepsilon\in\{0,\frac12\}$, and
+\[
+P^B_t(\hat x)=\frac{(-wt;q)_\infty\prod_{i<m}(-wtx_i,-wt/x_i;q)_\infty}{(q;q)_\infty^m\prod_{i<m}(qx_i^{\pm2},qx_i^{\pm1};q)_\infty\prod_{1\le i<j<m}(qx_i^{\pm}x_j^{\pm};q)_\infty},
+\]
+where $(qx_i^{\pm2};q)_\infty=(qx_i^2,qx_i^{-2};q)_\infty$, and $(qx_i^\pm x_j^\pm;q)_\infty$ denotes the product over the four choices of signs. The frozen letter contributes the single factor $(-wt;q)_\infty$ and the cross factors $(qx_i^{\pm1};q)_\infty$.
+
+\begin{proposition}[Even boundary formulas]\label{prop:evenbd}
+\begin{enumerate}
+\item For rational $c$,
+\[
+F_{2m,(0,\dots,0,c),0}(q)=(-q^{c+1/2};q)_\infty\,\HL^B_m(q^c;\one;q).
+\]
+\item For generic $\hat x$,
+\begin{align*}
+\HL^B_m(1;\hat x;q)&=P^B_1(\hat x)\,\frac{\det(\Phi^+_{j-1/2}(x_i))_{i,j=1}^m}{\delta^+_{1/2}(x)},\\
+\HL^B_m(q;\hat x;q)&=(1+w)\,P^B_1(\hat x)\,\frac{\det(\Psi^+_{j-1/2}(x_i))_{i,j=1}^m}{\delta^+_{1/2}(x)},\\
+\HL^B_m(w;\hat x;q)&=P^B_w(\hat x)\,\frac{\det(\Phi^+_{j-1}(x_i))_{i,j=1}^m}{\delta^+_{0}(x)}.
+\end{align*}
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+Part (i) is the case $n=2m-1$, $u=1$ of \cite[Theorem~3.7]{BW15}, after Euler's identity on the last coordinate as in \cref{lem:boundary} (equivalently \cite[Lemma~2.1]{CTW26}). For (ii), take level one, let $b\to\infty$ and put $c=-w/t$ in \cite[(5.6b)]{BW15}, which has $x=(\hat x,1)$, $K=n+\frac12$ and the factor $\Delta_B(-xq^r)/\Delta_B(-x)$. The one-variable factor becomes
+\[
+(-1)^{r}\,t^{r}\,q^{(m+1)r^2+(\frac12-m)r}\,x^{Lr}\,\frac{(-wx/t;q)_r}{(-wtx;q)_r}.
+\]
+Write $\Delta_B(y)=\prod_i(1-y_i)\prod_{i<j}(y_i-y_j)(y_iy_j-1)$ as $(-1)^m\prod_iy_i^{m-1/2}$ times the type-B determinant $\det\bigl(y_i^{m-j+1/2}-y_i^{-(m-j+1/2)}\bigr)$. At $y=-xq^r$ the monomial $\prod_i(-x_iq^{r_i})^{m-1/2}$ absorbs the factor $q^{(m-1/2)r}$, and for half-integral $a$ one has $(-y)^a-(-y)^{-a}=i^{2a}(y^a+y^{-a})$. Multilinearity in the rows turns the sum over $r\in\Z^m$ into the cosine determinant with entries $\Phi^+$; the constants cancel against the same computation at $r=0$, which produces $\delta^+_{1/2}$. This gives the case $t=1$. At $t=q$, the two telescoping factors combine with $P^B_q/P^B_1$ as in the proof of \cref{lem:boundary}; for the frozen letter the combination leaves the constant $1+w$. At $t=w$, the quotient $(1+x)/(1+xq^\ell)$ cancels a factor of the type-B denominator row by row, and the remaining determinant has integral indices.
+\end{proof}
+
+\begin{lemma}[Type-B tridiagonal inverse]\label{lem:evenB}
+For $0\le k\le m$ and $\tau=\tau^{(0)}_k$ put
+\[
+J^B_k(\hat x)=P^B_1(\hat x)\,\frac{\det(\Phi^+_{\tau_j}(x_i))_{i,j=1}^m}{\delta^+_{1/2}(x)}.
+\]
+Then
+\[
+\sum_{j=0}^kA_{k,j}(q)\,\HL^B_m(q^j;\hat x;q)=q^{k^2/2}J^B_k(\hat x)\qquad(0\le k\le m).
+\]
+In particular $\HL^B_m(1;\hat x;q)-\HL^B_m(q;\hat x;q)=wJ^B_1(\hat x)$.
+\end{lemma}
+
+\begin{proof}
+Put $d=m+1$ and index the functions by $a\in\{\frac12,\frac32,\dots,d-\frac12\}$. As in \cref{lem:bdexp}, $\Phi^+_a=(1+t^2)\Psi^{+[1]}_a+t(\Psi^{+[1]}_{a-1}+\Psi^{+[1]}_{a+1})$ with $t=w$, and similarly at every level $t=wq^{j-1}$. Two boundary effects change. At the bottom, the cosine symmetry gives $\Psi^+_{-1/2}=\Psi^+_{1/2}$, so the first diagonal entry of the tridiagonal matrix becomes $1+t+t^2$ and its determinant becomes $1+t$. At the top, the reindexing $\mu^-_x[f(y)]=-q^{L/2}\mu^-_x[y^Lf(qy)]$ applied to $f(y)=y^{-A}/(1+t/y)$ with $A=d+\frac12=(L+1)/2$ gives $\Psi^+_{d+1/2}+t\Psi^+_{d-1/2}=0$, so the last diagonal entry is $1$ as before. For $t=w$, the complementary-minor formula and Cauchy--Binet give
+\[
+\det\bigl(\Psi^+_{1/2},\dots,\Psi^+_{m-1/2}\bigr)=\frac{\det(\Phi^+_{1/2},\dots,\Phi^+_{m-1/2})-w\det(\Phi^+_{1/2},\dots,\Phi^+_{m-3/2},\Phi^+_{m+1/2})}{1+w},
+\]
+and \cref{prop:evenbd} gives the case $k=1$. For general $k$, the products $V_j$ of the modified matrices have determinant $(-w;q)_j$, which cancels in the complementary-minor formula, so \eqref{eq:bdexp} holds with the same coefficients $(V_j)_{d-h,d}$. For $j\le m$ no matrix path from the last coordinate reaches the modified first diagonal entry, so these coefficients agree with \cref{prop:coeffs}, and \cref{lem:inverse} applies verbatim.
+\end{proof}
+
+At $\hat x=\one$ the confluent limit is computed as in \cref{lem:confluent}, with the Vandermonde determinant in the variables $\log^2x_i$: since $\Phi^+_a(x)=\sum_{v\in a+L\Z}\epsilon_a(v)q^{(v^2-a^2)/(2L)}(x^v+x^{-v})$,
+\begin{equation}\label{eq:evenconf}
+J^B_k(\one)=\frac{(-w;q)_\infty^{2m-1}}{(q;q)_\infty^\nu}\sum_{v\in\tau+L\Z^m}\epsilon_\tau(v)\frac{\chi_0(v)}{\chi_0(\tau^{(0)}_*)}q^{\frac{\|v\|^2-\|\tau\|^2}{2L}},\qquad\tau=\tau^{(0)}_k.
+\end{equation}
+
+\begin{theorem}[Even companions in sector (i)]\label{thm:evencomp}
+Let $m\ge2$ and $1\le k\le\min(6,m-1)$. Then the identity of \cref{conj:evenwron} holds for $B^{\mathrm{(i)}}_k$, that is, $F_{2m,B^{\mathrm{(i)}}_k,0}=R^{(0)}_{\tau^{(0)}_k}$. Consequently $\bigl(B^{\mathrm{(i)}}_k,C\bigr)\in\M_{2m}$ with the scalar $C$ of \cref{conj:even}(i).
+\end{theorem}
+
+\begin{proof}
+The vector $B^{\mathrm{(i)}}_k$ is zero except for $k$ pairs $(-1,1)$ in positions $(2m-2i,2m-2i+1)$, $1\le i\le k$. For $k=1$, the contiguity computation leading to \eqref{eq:contig2} applies verbatim, since $T_{2m}(e_{2m-1}+e_{2m})=e_{2m-1}-e_{2m-2}$; with $c=0$ and \cref{prop:evenbd}(i) it gives $F_{2m,B^{\mathrm{(i)}}_1,0}=q^{-1/2}(-w;q)_\infty(\HL^B_m(1;\one;q)-\HL^B_m(q;\one;q))$. For $2\le k\le6$, the reductions of \cref{lem:k2red,lem:certred} at $v=0$, that is $u=1$, involve only the last $2k+1$ coordinates, and their proofs use only the local form of the tadpole quadratic form near the last coordinate. They therefore hold in rank $2m$ whenever $2m\ge2k+1$, and give
+\[
+q^{k^2/2}F_{2m,B^{\mathrm{(i)}}_k,0}=\sum_{j=0}^kA_{k,j}(q)\,(-w;q)_j\,F_{2m,je_{2m},0}=(-w;q)_\infty\sum_{j=0}^kA_{k,j}(q)\,\HL^B_m(q^j;\one;q).
+\]
+(For $k=5,6$ this uses the certificates at $u=1$.) \Cref{lem:evenB} and \eqref{eq:evenconf} identify the right-hand side with $R^{(0)}_{\tau^{(0)}_k}$, and \cref{prop:evenwron} gives modularity.
+\end{proof}
+
+\begin{corollary}\label{cor:r6more}
+The second and third pairs of \cref{thm:r6} are modular. Thus four of the nine pairs in rank six are proved modular, and for every $m\ge7$ the set $\M_{2m}$ contains at least the eight pairs of \cref{conj:even}(i) with $k\le6$ and (ii) with $j=0$.
+\end{corollary}
+
+The remaining even sectors, namely (i) with $k=m$, (ii) with $j\ge1$, (iii) and (iv), contain the shift $v=\frac12$ of the boundary family $B=(2v,-2v,\dots,2v,c)$. For $v\ne0$, \cite[Theorem~3.7]{BW15} gives Hall--Littlewood functions in the letters $(u,u^{-1},\dots,u^{-1},u)$ with $u=q^v$, in which the unpaired letter is $u$ rather than $1$. This is not of the form covered by \cite[(5.6b)]{BW15}, and a determinant formula for it is the missing ingredient for these sectors. In plethystic terms the obstruction is the unpaired letter: for $u=w$ one has $p_k[X/(1-q)]=\bigl((m-1)(w^k+w^{-k})+w^k\bigr)/(1-q^k)$, which is not of the form produced by the alphabets $(x^\pm)$ or $(\hat x^\pm,1)$.
+
+\begin{remark}\label{rem:evenlead}
+The constant terms of the right-hand sides in \cref{conj:evenwron} are
+\[
+\frac{\chi_0(\tau^{(0)}_k)}{\chi_0(\tau^{(0)}_*)}=\binom{2m-1}{k}-\binom{2m-1}{k-2},\qquad c_j\,\frac{\chi_0(\tau^{(1/2)}_j)}{\chi_0(\tau^{(1/2)}_*)}=\binom{2m}{j},
+\]
+by cancellation in the products defining $\chi_0$. These are the even analogues of \cref{prop:leading}. The factor $c_m=2$ is exactly what is needed for $\binom{2m}{m}$. The Nahm sums have the same constant terms in every case computed (ranks two to fourteen), and a path-counting proof as in \cref{prop:leading} should be possible.
+\end{remark}

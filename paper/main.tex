@@ -1,0 +1,80 @@
+\documentclass[11pt,reqno]{amsart}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=green!40!black,urlcolor=blue!60!black]{hyperref}
+\usepackage[capitalise,nameinlink]{cleveref}
+
+\numberwithin{equation}{section}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\crefname{conjecture}{Conjecture}{Conjectures}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\one}{\mathbf{1}}
+\newcommand{\T}{\mathsf{T}}
+\newcommand{\HL}{\mathcal{H}}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\qbin}[2]{\begin{bmatrix}#1\\#2\end{bmatrix}_q}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\Li}{\operatorname{Li}}
+\newcommand{\file}[1]{\nolinkurl{#1}}
+\def\UrlBreaks{\do\_\do\/\do\-}
+
+\begin{document}
+
+\title[Modular shifts of tadpole Nahm sums]{Modular shifts of tadpole Nahm sums:\\ classifications, companion identities,\\ and boundary calculus}
+
+% ---- Author information: to be completed by the author(s) ----
+\author{[Author name]}
+\address{[Department, Institution, Address]}
+\email{[email address]}
+
+\subjclass[2020]{Primary 11P84, 11F03; Secondary 33D15, 05E05, 13P10}
+\keywords{Nahm sums, tadpole Cartan matrix, modular functions, Rogers--Ramanujan type identities, Hall--Littlewood polynomials, Wronskians, asymptotic expansions, Gr\"obner bases}
+
+\begin{abstract}
+For the tadpole matrix $T_r$ we study the set $\M_r$ of rational pairs $(B,C)$ for which the Nahm sum $F_{r,B,C}$ is a modular function. We determine $\M_r$ completely for $r=2,3,4,5,7,9$, where it has $5,6,8,9,12,15$ elements, respectively, and we show that $\M_6$ has at most nine elements; no bound on the size or denominators of $B$ and $C$ is assumed. The modular examples in ranks three, four and five were known, and our contribution there is exhaustiveness. Necessity follows from the vanishing of cumulants in the Vlasenko--Zwegers asymptotic expansion at a cusp, combined with exact elimination; in ranks seven and nine we transfer a finite-field dimension bound to $\Q$ by means of a criterion on highest homogeneous parts. In every odd rank $r=2m+1$ the classifications suggest a family of $3(m+1)$ modular pairs. We prove a companion Wronskian identity for these pairs at the indices $k\in\{0,1,\dots,6,m\}$ using Hall--Littlewood identities of Bartlett and Warnaar together with exact telescoping certificates. Consequently, all proposed pairs are modular through rank fifteen, and every odd rank $r\ge 15$ has at least twenty-four. We also develop a boundary calculus valid for all indices: an explicit finite kernel, an affine folding formula, and a reduction of every boundary shift to the first $m+1$ shifts with coefficients in $\Z[q]$, which form a minimal basis when the Hall--Littlewood variables are free. A polynomial recurrence relates the coefficients to $q$-Fibonacci polynomials. We formulate a local identity that would complete the companion induction, and an even-rank analogue of the odd-rank conjecture, together with even-rank Wronskian identities that would complete the classification in rank six. We prove these identities in one even sector for the first six indices, using a type-B identity of Bartlett and Warnaar, and test the rest up to rank fourteen.
+\end{abstract}
+
+\maketitle
+
+\input{s1_intro}
+\input{s2_cusp}
+\input{s3_low}
+\input{s4_theta}
+\input{s5_boundary}
+\input{s6_cert}
+\input{s7_open}
+
+\appendix
+\input{sA_data}
+\input{sB_verif}
+
+\section*{Data availability}
+The data and programs for the computations described in \cref{app:verification} are available at \url{https://github.com/ramanujamath/tadpole-nahm-modularity} (archived version: [DOI to be inserted]).
+
+\section*{Acknowledgements}
+[To be completed by the author(s).]
+
+\input{refs}
+
+\end{document}

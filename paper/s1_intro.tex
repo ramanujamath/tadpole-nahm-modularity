@@ -1,0 +1,96 @@
+\section{Introduction}\label{sec:intro}
+
+\subsection{Nahm sums and the tadpole matrix}
+For a positive definite symmetric matrix $A\in\Q^{r\times r}$, a vector $B\in\Q^r$ and a scalar $C\in\Q$, the Nahm sum
+\[
+f_{A,B,C}(q)=\sum_{n\in\Z_{\ge0}^r}\frac{q^{\frac12 n^\T An+B^\T n+C}}{(q;q)_{n_1}\cdots(q;q)_{n_r}}
+\]
+is holomorphic for $|q|<1$. Nahm's problem asks for all triples $(A,B,C)$ for which $f_{A,B,C}$ is a modular function \cite{Nahm07,Zagier07}. In rank one, Zagier showed that there are exactly seven such triples \cite{Zagier07}. In higher rank no classification is known. Zagier compiled lists of candidates in ranks two and three, and Vlasenko and Zwegers developed the asymptotic analysis at cusps that underlies much of the subsequent work, including counterexamples to the most direct form of Nahm's conjecture \cite{VZ11}; one direction of the conjecture was later proved by Calegari, Garoufalidis and Zagier \cite{CGZ}. Asymptotic conditions of this kind have also been used to search for modular companions of known identities \cite{Kanade19}.
+
+This paper concerns the \emph{tadpole} family. For $r\ge1$, let $T_r$ be the symmetric matrix with diagonal entries $2,\dots,2,1$, entries $-1$ immediately above and below the diagonal, and all other entries zero. For $B\in\Q^r$, $C\in\Q$ and $q=e^{2\pi i\tau}$ with $\operatorname{Im}\tau>0$, put
+\begin{equation}\label{eq:nahm}
+F_{r,B,C}(q)=\sum_{n\in\Z_{\ge0}^r}\frac{q^{\frac12 n^\T T_rn+B^\T n+C}}{\prod_{j=1}^r(q;q)_{n_j}},\qquad (q;q)_m=\prod_{j=1}^m(1-q^j),
+\end{equation}
+where an empty product is $1$ and rational powers mean $q^a=e^{2\pi ia\tau}$. Since $T_r$ is positive definite, the series converges on the upper half-plane. Calinescu, Milas and Penn conjectured that the principal tadpole sums, which arise from principal subspaces of the twisted affine algebra $A_{2r}^{(2)}$, are modular \cite{CMP16}. The conjecture was proved by Milas and Wang for $r=3$, together with six modular shifts \cite{MW24}, and by Shi and Wang for $r=4,5$, together with principal and companion sums \cite{SW26}. Further rank-four companions were obtained in \cite{SW26b}; three of these identities were proved independently by Li \cite{Li26}, and related rank-four families arise from lift-dual operations \cite{CW25,CW26}. Chern, Tran and Wakhare showed that the tadpole Nahm sum is a specialization of a series of Bartlett and Warnaar \cite{BW15}, and obtained a Wronskian formula for the principal and last-coordinate half-shifted sums in every rank \cite{CTW26}.
+
+We study the corresponding classification problem: determine
+\[
+\M_r=\{(B,C)\in\Q^r\times\Q:\ F_{r,B,C}\ \text{is a modular function}\}.
+\]
+Here a modular function is a function invariant under a congruence subgroup of $\mathrm{SL}_2(\Z)$ and meromorphic at its cusps. Proving that particular pairs lie in $\M_r$ (sufficiency) and proving that a given list exhausts $\M_r$ (necessity) are different problems. Most of the literature cited above concerns sufficiency.
+
+\subsection{Classification results}
+The odd-rank classifications obtained below fit a single family.
+
+\begin{conjecture}[Odd-rank classification]\label{conj:odd}
+For $r=2m+1$ with $m\ge1$, the set $\M_r$ consists of the following $3(m+1)$ pairs. Choose
+\[
+z\in\{-\tfrac12,0,\tfrac12\},\qquad 0\le x_1\le\cdots\le x_m\le1,\qquad x_j\in\Z,
+\]
+put $k=x_1+\cdots+x_m$, and set
+\begin{align*}
+B&=(2z-x_1,\,x_1-2z,\,\dots,\,2z-x_m,\,x_m-2z,\,z)^\T,\\
+C&=-\frac{r(2r+1)}{48(r+2)}+\frac{k(r+1-k)}{2(r+2)}-kz+\frac{2r-1}{4}z^2.
+\end{align*}
+\end{conjecture}
+
+The scalar satisfies $C(k,-\tfrac12)-C(k,\tfrac12)=k$, as required by the identity \eqref{eq:halfshift} below. For $m=0$ the formula gives $B=(z)$ and $C=-\tfrac1{48}+\tfrac{z^2}4$, which are exactly the three rank-one modular triples with $A=1$ in Zagier's classification \cite{Zagier07}.
+
+\begin{theorem}\label{thm:main-class}
+For $r\in\{2,3,4,5,7,9\}$ the set $\M_r$ is finite and has the following cardinality.
+\begin{center}
+\begin{tabular}{ccc}
+\toprule
+Rank $r$ & $|\M_r|$ & Statement\\
+\midrule
+2 & 5 & \cref{thm:r2}\\
+3 & 6 & \cref{thm:r3}\\
+4 & 8 & \cref{thm:r4}\\
+5 & 9 & \cref{thm:r5}\\
+7 & 12 & \cref{cor:r7}\\
+9 & 15 & \cref{thm:r9}\\
+\bottomrule
+\end{tabular}
+\end{center}
+In particular, \cref{conj:odd} holds for $r=3,5,7,9$. Moreover, $\M_6$ has at most nine elements (\cref{thm:r6}). No bound is imposed on the denominators or sizes of the rational shifts.
+\end{theorem}
+
+For $r=3,4,5$ every element of $\M_r$ was already known to be modular \cite{MW24,SW26,SW26b}; the new statement is that the lists are complete. For $r=2,7,9$ both directions are proved here; in rank two the five modular sums are infinite products given by the Göllnitz--Gordon and Lebesgue identities. The even ranks two, four and six suggest a second family, with $2m+3$ pairs in rank $2m$ for $m\ne2$ (\cref{conj:even}). It agrees with the cusp conditions in ranks eight and ten, and \cref{conj:odd} agrees with them in ranks eleven and thirteen (\cref{rem:highrank}). The even-rank sums also appear to satisfy Wronskian identities with an alternating theta character (\cref{conj:evenwron}); we have checked them as exact $q$-series in all even ranks up to fourteen, and they would imply the sufficiency direction of \cref{conj:even}, in particular completing the classification in rank six (\cref{prop:evenwron}). Using the type-B identity of Bartlett and Warnaar, we prove the first companions in one even sector for $1\le k\le\min(6,m-1)$ (\cref{thm:evencomp}); in rank six this proves four of the nine pairs. The proofs of necessity are computer-assisted; see \cref{subsec:computation}.
+
+\subsection{Companion identities}
+For $r=2m+1$ and $0\le k\le m$, let $B(k,z)$ and $C(k,z)$ denote the pair of \cref{conj:odd} with $x_1=\cdots=x_{m-k}=0$ and $x_{m-k+1}=\cdots=x_m=1$. In \cref{sec:theta} we propose an explicit Wronskian (theta-determinant) formula for $F_{r,B(k,z),0}$ (\cref{conj:wron}), and show that it implies modularity with exactly the scalar $C(k,z)$ (\cref{prop:rhs-modular}).
+
+\begin{theorem}\label{thm:main-comp}
+Let $r=2m+1$. The identity \eqref{eq:wron} holds for every
+\[
+k\in\{0,1,2,3,4,5,6,m\}\cap\{0,\dots,m\},\qquad z\in\{0,\tfrac12\}.
+\]
+Consequently $(B(k,z),C(k,z))\in\M_r$ for these $k$ and all $z\in\{-\frac12,0,\frac12\}$. In particular, every pair of \cref{conj:odd} is modular for $r\le15$, and $\M_r$ contains at least twenty-four elements for every odd $r\ge15$.
+\end{theorem}
+
+The cases $k\in\{0,1,m\}$ (\cref{thm:basic}) follow from two identities of Bartlett and Warnaar \cite{BW15} through a finite determinant calculation. The case $k=2$ (\cref{thm:k2}) uses a short telescoping certificate, which is printed in full, and the cases $3\le k\le6$ (\cref{thm:k3to6}) use larger certificates of the same type. Two of the identities, $(k,z)=(0,0)$ and $(m,\tfrac12)$, are the formulas of Chern, Tran and Wakhare \cite[Theorem~1.4]{CTW26}.
+
+\subsection{Boundary calculus}
+\Cref{sec:boundary} treats the Hall--Littlewood side of the companion problem for arbitrary indices. We give an explicit finite kernel for the relevant products of tridiagonal matrices (\cref{prop:kernel}), an affine folding formula for the boundary inverse (\cref{thm:folding}), and a reduction of every boundary shift to the first $m+1$ shifts with coefficients in $\Z[q]$ (\cref{thm:basis,cor:reduction}). These $m+1$ functions form a minimal basis when the Hall--Littlewood variables are free. A polynomial recurrence (\cref{prop:recurrence}) connects the coefficients with $q$-Fibonacci polynomials \cite{Cigler03}. The only missing ingredient for a proof of \cref{conj:wron} at all indices is a reduction on the Nahm side; \cref{sec:open} isolates it as an explicit local identity (\cref{prop:induction}).
+
+\subsection{Relation to previous work}
+The six rank-three identities and their modularity are due to Milas and Wang \cite{MW24}; the nine rank-five pairs and the first four rank-four pairs are due to Shi and Wang \cite{SW26}, and the remaining four rank-four pairs to \cite{SW26b} (see also \cite{Li26}). Up to a permutation of coordinates, the rank-four candidate set already appears in \cite[Table~3]{CW25}. The simultaneous-shift relation (\cref{lem:simshift}) is a consequence of the rank reduction of Shi and Wang, and the coefficient inversion of \cref{lem:inverse} is a rescaled Bailey inversion. The theta numerators in \eqref{eq:wron} are of standard affine-character form, so their modularity is not in itself a new statement about Nahm sums. To our knowledge, the exhaustive classifications of \cref{thm:main-class}, the companion identities of \cref{thm:main-comp} other than the two cases $(k,z)=(0,0)$ and $(m,\frac12)$ of \cite{CTW26}, and the boundary calculus of \cref{sec:boundary} are new.
+
+\subsection{Computations}\label{subsec:computation}
+The proofs of necessity and of the higher companion identities use three kinds of computation.
+\begin{enumerate}
+\item In ranks three, four and five, the eliminations are proved by rational polynomial certificates (explicit ideal-membership cofactors and Gr\"obner bases), which are checked in exact rational arithmetic.
+\item In ranks two, six, seven and nine, an affine elimination over a prime field and a computation with highest homogeneous parts are combined through \cref{lem:transfer}. The cusp polynomials are computed in exact number-field arithmetic.
+\item The companion identities for $3\le k\le6$ are proved by Laurent-polynomial telescoping identities, which are checked by exact integer expansion.
+\end{enumerate}
+\Cref{app:verification} describes these computations. Numerical $q$-series comparisons appear only in \cref{sec:open}, as evidence for conjectures, and are not used in any proof.
+
+\subsection{Organization}
+\Cref{sec:cusp} sets up the cusp obstructions and the transfer lemma. \Cref{sec:low} proves the classifications. \Cref{sec:theta} introduces the Wronskian identities and proves the basic companions, \cref{sec:boundary} develops the boundary calculus, and \cref{sec:cert} proves the companions with $2\le k\le6$. \Cref{sec:open} states the remaining problems. \Cref{app:data} records the obstruction data in ranks three, four and five.
+
+\subsection{Notation}
+We write $(a;q)_n=\prod_{s=0}^{n-1}(1-aq^s)$ for $n\ge0$, $(a;q)_\infty=\prod_{s\ge0}(1-aq^s)$, and $(a_1,\dots,a_t;q)_n=\prod_{i=1}^t(a_i;q)_n$, also for $n=\infty$. For a nonnegative integer $a$, the Gaussian binomial coefficient is
+\[
+\qbin{a}{b}=\frac{(q;q)_a}{(q;q)_b(q;q)_{a-b}}\qquad(0\le b\le a),
+\]
+and is zero otherwise. We write $e_i$ for the $i$th coordinate vector, $\one=(1,\dots,1)$, $\delta_{ij}$ for the Kronecker delta, and $\eta(\tau)=q^{1/24}\prod_{n\ge1}(1-q^n)$ for the Dedekind eta function.

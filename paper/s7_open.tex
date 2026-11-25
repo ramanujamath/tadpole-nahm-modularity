@@ -1,0 +1,144 @@
+\section{Remaining classification and induction problems}\label{sec:open}
+
+Three questions remain beyond the proved range.
+\begin{enumerate}
+\item The necessity direction of \cref{conj:odd} is open from rank eleven onward. A uniform argument must force the adjacent-pair relations and the ordered Boolean chain without a separate elimination in each rank.
+\item The companion indices $7\le k\le m-1$ are unproved, beginning with $k=7$ in rank seventeen. The boundary inverse is known at every index (\cref{lem:inverse,thm:folding}); the missing step is the reduction on the Nahm side.
+\item In even rank, sufficiency is open in rank six for five of the nine pairs of \cref{thm:r6}, and both directions are open from rank eight onward. \Cref{conj:even} below gives the expected answer, and \cref{conj:evenwron} reduces sufficiency to explicit theta-determinant identities, as \cref{conj:wron} does in odd rank. A related question is whether a number of cusp conditions independent of the rank suffices; ranks two, three, five, six, seven and nine need three coefficients, while rank four needs four.
+\end{enumerate}
+
+\subsection{Even ranks}
+Ranks two, four and six suggest the following description.
+
+\begin{conjecture}[Even-rank classification]\label{conj:even}
+Let $r=2m$ with $m\ge1$. Then $\M_r$ contains the following $2m+3$ pairs, and for $m\ne2$ it consists exactly of them.
+\begin{enumerate}
+\item For integers $0\le x_0\le x_1\le\cdots\le x_{m-1}\le1$ with $k=\sum_ix_i$,
+\[
+B=(x_0,\,-x_1,\,x_1,\,\dots,\,-x_{m-1},\,x_{m-1},\,0),\qquad C=-\frac{r(2r+1)}{48(r+2)}+\frac{k(r+1-k)}{2(r+2)}.
+\]
+\item For integers $1\ge y_1\ge\cdots\ge y_{m-1}\ge0$ with $j=\sum_iy_i$,
+\[
+B=(y_1,\,-y_1,\,\dots,\,y_{m-1},\,-y_{m-1},\,0,\,\tfrac12),\qquad C=-\frac{r(r-4)}{24(r+2)}+\frac{j(r-j)}{2(r+2)}.
+\]
+\item $B=(1,-1,\dots,1,-1,1,-\tfrac12)$, with $m-1$ pairs $(1,-1)$, and $C=r/12$.
+\item The vector of (iii) with $(1,-1)$ added to its first two coordinates, and $C=C_{m-1}+1$, where $C_{m-1}$ is the scalar in (ii) with $j=m-1$.
+\end{enumerate}
+For $m=2$, \cref{thm:r4} shows that $\M_4$ consists of these seven pairs together with the exceptional pair $\bigl((\frac32,-\frac32,\frac12,0),\frac9{16}\bigr)$.
+\end{conjecture}
+
+The sector (i) has the same scalar as \cref{conj:odd} with $z=0$. \Cref{thm:r2,thm:r4,thm:r6} agree with the conjecture in ranks two, four and six; in rank six only necessity and two of the nine sufficiency statements are proved. In ranks two and six the pair (iv) satisfies $F_{r,B_{\mathrm{(iv)}},0}=2q^{-1}F_{r,B_{\mathrm{(ii)},j=m-1},0}$, exactly in rank two and to order $q^{24}$ in rank six, which explains the shift of $C$ by one.
+
+\subsection{An even-rank Wronskian formula}
+The sums in \cref{conj:even} appear to satisfy theta-determinant identities parallel to \eqref{eq:wron}, with an alternating character on the lattice and without the factor $\prod_iv_i$. Let $r=2m$, $L=2m+2$ and $\nu=m(2m-1)$, and put
+\[
+\chi_0(v)=\prod_{1\le i<j\le m}(v_i^2-v_j^2),\qquad \epsilon_\tau(v)=(-1)^{\sum_i(v_i-\tau_i)/L}\quad(v\in\tau+L\Z^m).
+\]
+Define increasing tuples
+\begin{align*}
+\tau^{(0)}_k&=(\tfrac12,\tfrac32,\dots,m+\tfrac12)\setminus\{m+\tfrac12-k\}, & \tau^{(0)}_*&=(\tfrac12,\dots,m-\tfrac12),\\
+\tau^{(1/2)}_j&=(0,1,\dots,m)\setminus\{m-j\}, & \tau^{(1/2)}_*&=(0,1,\dots,m-1),
+\end{align*}
+for $0\le k,j\le m$, and let
+\[
+R^{(z)}_\tau(q)=\frac{(-q^{1/2+z};q)_\infty^r}{(q;q)_\infty^\nu}\sum_{v\in\tau+L\Z^m}\epsilon_\tau(v)\,\frac{\chi_0(v)}{\chi_0(\tau^{(z)}_*)}\,q^{\frac{\|v\|^2-\|\tau\|^2}{2L}}.
+\]
+
+\begin{conjecture}[Even-rank Wronskian identity]\label{conj:evenwron}
+Let $B^{\mathrm{(i)}}_k$ be the vector of \cref{conj:even}(i) with $\sum_ix_i=k$, let $B^{\mathrm{(ii)}}_j$ ($0\le j<m$) be the vector of \cref{conj:even}(ii) with $\sum_iy_i=j$, and let $B^{\mathrm{(ii)}}_m$ be the vector of \cref{conj:even}(iii). Then
+\[
+F_{2m,B^{\mathrm{(i)}}_k,0}=R^{(0)}_{\tau^{(0)}_k},\qquad F_{2m,B^{\mathrm{(ii)}}_j,0}=c_j\,R^{(1/2)}_{\tau^{(1/2)}_j},\qquad c_j=\begin{cases}1,&j<m,\\2,&j=m.\end{cases}
+\]
+Moreover, the vector $B^{\mathrm{(iv)}}$ of \cref{conj:even}(iv) satisfies $F_{2m,B^{\mathrm{(iv)}},0}=2q^{-1}F_{2m,B^{\mathrm{(ii)}}_{m-1},0}$.
+\end{conjecture}
+
+The cases $B^{\mathrm{(i)}}_0=0$ and $B^{\mathrm{(ii)}}_0=(0,\dots,0,\frac12)$ are the principal and last-coordinate half-shift formulas of \cite{CTW26} for even rank; the alternating character is their sign $\varepsilon=(-1)^{r+1}$. In rank two the last relation is proved in \cref{thm:r2}. In odd rank the analogous relation \eqref{eq:halfshift} follows from the simultaneous shift of \cref{lem:simshift}, which comes from the odd-rank reduction of Shi and Wang. Their even-rank reduction \cite[(1.10)]{SW26}, which holds with $x_0=x_1^{-1}$, admits no shift of this kind: the factors $x_0^{-n_1}$ and $(x_2/x_0)^{n_2}$ leave an uncancelled term $q^{hn_2}$. A proof of the last relation, and of \cref{conj:evenwron} beyond the principal cases, therefore seems to require the Hall--Littlewood identities of \cite{BW15} at non-principal specializations, as in \cref{sec:theta}.
+
+\begin{proposition}\label{prop:evenwron}
+For each tuple $\tau$ above, $q^{C}R^{(z)}_\tau$ is a modular function on a congruence subgroup, where $C$ is the scalar attached to the corresponding pair in \cref{conj:even}. Consequently, \cref{conj:evenwron} implies that every pair of \cref{conj:even} is modular, and in particular that $\M_6$ consists of exactly the nine pairs of \cref{thm:r6}.
+\end{proposition}
+
+\begin{proof}
+For rational $a$, the series $\theta^-_{a,L}(q)=\sum_{v\in a+L\Z}(-1)^{(v-a)/L}q^{v^2/(2L)}$ has weight $1/2$ on a congruence subgroup. As in the proof of \cref{prop:rhs-modular}, expanding the Wronskian $\det(\mathcal D^{i-1}\theta^-_{\tau_j,L})_{i,j=1}^m$ and using the Vandermonde determinant in the variables $v_j^2$ gives a constant multiple of $\sum_{v\in\tau+L\Z^m}\epsilon_\tau(v)\chi_0(v)q^{\|v\|^2/(2L)}$, which has weight $m/2+m(m-1)=\nu/2$. The eta-quotient factors are those of \cref{prop:rhs-modular}, and the weights cancel. The power of $q$ that normalizes the product is
+\[
+\frac{\|\tau\|^2}{2L}-\frac\nu{24}-\begin{cases}\frac r{48},&z=0,\\[2pt]-\frac r{24},&z=\frac12,\end{cases}
+\]
+and direct evaluation of $\|\tau\|^2$ shows that it equals the scalar of \cref{conj:even} in sectors (i)--(iii). The relation for $B^{\mathrm{(iv)}}$ multiplies by $2q^{-1}$, which shifts the scalar by one, as in (iv). Together with \cref{thm:r6}, this gives the last assertion.
+\end{proof}
+
+\input{s7b_even}
+
+\begin{remark}\label{rem:evenwron-evidence}
+The identities of \cref{conj:evenwron} not covered by \cref{thm:evencomp} or \cite{CTW26} agree with the Nahm sums as $q$-series, in exact integer arithmetic, through $q^{40}$ in rank six, through $q^{15}$ in ranks eight, ten and twelve, and through $q^{10}$ in rank fourteen. The relation for $B^{\mathrm{(iv)}}$ agrees through $q^{20}$ in ranks four to eight. In rank four the corresponding sums are known to be modular by \cite{SW26,SW26b}. This evidence is not used in any proof.
+\end{remark}
+
+\begin{remark}\label{rem:highrank}
+The conjectures have been tested against the cusp conditions beyond the classified ranks. For each of the $11$ and $13$ pairs predicted by \cref{conj:even} in ranks eight and ten, and for each of the $18$ and $21$ pairs predicted by \cref{conj:odd} in ranks eleven and thirteen, the procedure of \cref{sec:cusp} gives $\kappa_2=\kappa_3=0$ and $c_1-\gamma_0=C$ to within $10^{-10}$ in floating-point arithmetic. Random half-integral shifts give values between $10^{-2}$ and $10^{2}$. In rank eleven, replacing the ordered chain $x_1\le\cdots\le x_5$ by unordered patterns such as $(1,0,0,0,0)$ or $(1,0,1,0,1)$ gives $|\kappa_2|>2\cdot10^{-2}$; thus the ordering in \cref{conj:odd} is not an artefact of the ranks used to formulate it. These computations are evidence only.
+\end{remark}
+
+\begin{remark}\label{rem:numerics}
+As a check on normalizations only, identity \eqref{eq:wron} has been compared coefficientwise, in exact integer arithmetic, through $q^{15}$ for $(m,k)=(8,7)$ and $(9,8)$ in both sectors and for $(m,k)=(9,7)$ and $(10,9)$ in the sector $z=0$. These cases lie outside the proved range. Such comparisons are not used anywhere as proofs.
+\end{remark}
+
+\subsection{The missing boundary reduction}
+Set $\HL_{m,j}=\HL_m(q^j;\one;q)$. The reduction in the sector $z=0$ is
+\begin{equation}\label{eq:missing}
+\frac{S^{(0)}_{m,k}}{(-w;q)_\infty}=q^{-k^2/2}\sum_{j=0}^kA_{k,j}(q)\,\HL_{m,j}.
+\end{equation}
+\Cref{thm:basic,thm:k2,thm:k3to6}, together with \cref{lem:inverse}, prove this identity for $0\le k\le\min(6,m)$ and for $k=m$. The remaining interior indices are conjectural. The local formulation below would prove the more general reduction \eqref{eq:certred} by induction.
+
+\subsection{A local induction problem for the remaining companions}
+The boundary relation at index $m+1$ supplies the initial value of a more demanding contiguity identity, which we now state explicitly; the basis theorem alone does not prove it.
+
+Retain $u=q^v$, $w=q^{1/2}$ and the polynomials $R_s(e)$ defined above, now for every $s\ge0$. For $k\ge1$, put $r_k=2k-1$, and let $b^{(k)}_v\in\Q^{r_k}$ consist of $k-1$ pairs $(-2v,2v)$ followed by $-v$. For integers $N,s\ge0$, define
+\begin{equation}\label{eq:moment}
+\mathfrak M^{(s)}_{k,N}(v;q)=\sum_{j=0}^sA_{s,j}(q)\,(-w/u;q)_j\,F_{r_k,\,b^{(k)}_v-Ne_1+je_{r_k},\,0}(q).
+\end{equation}
+For $k\ge2$, \cref{cor:bdrel} proves $\mathfrak M^{(k)}_{k,0}=0$, and Euler's identity proves the same for $k=1$. The proposed extension is
+\begin{equation}\label{eq:extension}
+\mathfrak M^{(k)}_{k,N}(v;q)=\frac{q^{k-1/2}}u\,(q^{-N}-1)\,\mathfrak M^{(k-1)}_{k,N-1}(v;q)\qquad(N\ge1).
+\end{equation}
+Both moments here have rank $2k-1$. We do not establish this identity for arbitrary $k$.
+
+The following proposition gives its precise role. For $n=(n_1,\dots,n_{2k})\in\Z_{\ge0}^{2k}$ and indeterminates $a=(a_1,\dots,a_{2k})$, set
+\[
+W_k(n;u)=\frac{q^{\sum_{i=1}^{2k-1}n_i^2+n_{2k}^2/2-\sum_{i=1}^{2k-1}n_in_{i+1}}\,u^{2\sum_{i=1}^{2k-1}(-1)^{i+1}n_i-n_{2k}}}{\prod_{i=1}^{2k}(q;q)_{n_i}},\qquad T_k(a)=\frac{a_1a_3\cdots a_{2k-1}}{a_2a_4\cdots a_{2k-2}},
+\]
+where an empty product is $1$. For a Laurent polynomial $P$ in $2k$ variables, write
+\[
+\mathcal Z_k(X;P)=\sum_{n\ge0}W_k(n;u)\,X^{n_1}P(q^{n_1},\dots,q^{n_{2k}}).
+\]
+Positive definiteness of $T_{2k}$ makes this an entire function of $X$. The local boundary identity is
+\begin{equation}\label{eq:local}
+\mathcal Z_k(X;R_k(a_{2k}))=q^{k^2/2}u^kX\,\mathcal Z_k(X;T_k).
+\end{equation}
+
+\begin{proposition}[Induction criterion]\label{prop:induction}
+Identity \eqref{eq:local} holds for $k=1$ and every rational $v$. For $k\ge2$, assume that it holds at $k-1$ for every $X$. Then \eqref{eq:local} at $k$ is equivalent to \eqref{eq:extension} for every $N\ge1$. If these identities hold through index $k$, they imply \eqref{eq:certred} at that index for every $m\ge k$.
+\end{proposition}
+
+\begin{proof}
+The coefficient of $X^N$ on the left of \eqref{eq:local} is
+\[
+\frac{q^{N^2}u^{2N}}{(q;q)_N}\,\mathfrak M^{(k)}_{k,N}.
+\]
+For $N\ge1$, fix $n_1=N-1$ on the right. The remaining insertion is the full companion of index $k-1$ on the coordinates $n_2,\dots,n_{2k}$, with an additional first-coordinate shift $-(N-1)e_1$. Apply the local identity at $k-1$, first fixing $n_2$ and then summing over it. The resulting coefficient is
+\[
+\frac{q^{N^2-N+k-1/2}u^{2N-1}}{(q;q)_{N-1}}\,\mathfrak M^{(k-1)}_{k,N-1}.
+\]
+Equality of these coefficients is precisely \eqref{eq:extension}. The constant coefficients vanish on both sides, since $\mathfrak M^{(k)}_{k,0}=0$. Since both sides are entire in $X$, this proves the equivalence.
+
+For the base case, put $c=w/u$. Euler's identity gives
+\[
+\mathfrak M^{(0)}_{1,N}=(-cq^{-N};q)_\infty,\qquad \mathfrak M^{(1)}_{1,N}=c(q^{-N}-1)(-cq^{1-N};q)_\infty,
+\]
+and substitution into the coefficient calculation verifies \eqref{eq:local} for $k=1$, including its constant term.
+
+Finally, fix the coordinate $n_{r-2k}$ of a Nahm sum of rank $r=2m+1$ and set $X=q^{-n_{r-2k}}$. The factor $XT_k$ is exactly the insertion for its last $k$ companion pairs. Summing \eqref{eq:local} over the fixed coordinate and all preceding coordinates, which is justified by absolute convergence, yields
+\[
+q^{kv+k^2/2}G_{m,k}(v;q)=\sum_{j=0}^kA_{k,j}(q)\,(-w/u;q)_j\,F_{r,B_v+je_r,0}(q).
+\]
+\Cref{lem:boundary} then gives \eqref{eq:certred}.
+\end{proof}
+
+The telescoping certificates of \cref{sec:cert} prove the local identity through $k=4$ for arbitrary rational $v$, and through $k=6$ for $v=0,\frac12$; consequently they also prove \eqref{eq:extension} in those ranges. For larger indices, the value at $N=0$ alone does not determine the values at $N\ge1$, and establishing that extension is the remaining step in the proposed induction. \Cref{prop:recurrence} is an identity among the polynomials $R_k$ and does not supply this extension.

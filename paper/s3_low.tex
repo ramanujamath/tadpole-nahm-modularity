@@ -1,0 +1,270 @@
+\section{Classifications in low rank}\label{sec:low}
+
+\subsection{Rank two}
+
+\begin{theorem}[Rank-two classification]\label{thm:r2}
+Let $B=(b_1,b_2)^\T\in\Q^2$ and $C\in\Q$. Then $F_{2,B,C}$ is a modular function if and only if $(B,C)$ is one of the following five pairs, for which, with $w=q^{1/2}$,
+\begin{center}
+\begin{tabular}{rrrl}
+\toprule
+$b_1$ & $b_2$ & $C$ & $F_{2,B,0}(q)$\\
+\midrule
+$0$ & $0$ & $-5/96$ & $(-w;q)_\infty\big/\bigl((w;w^8)_\infty(w^4;w^8)_\infty(w^7;w^8)_\infty\bigr)$\\
+$1$ & $0$ & $19/96$ & $(-w;q)_\infty\big/\bigl((w^3;w^8)_\infty(w^4;w^8)_\infty(w^5;w^8)_\infty\bigr)$\\
+$0$ & $1/2$ & $1/24$ & $(-q;q)_\infty^2(-q;q^2)_\infty$\\
+$1$ & $-1/2$ & $1/6$ & $2(-q;q)_\infty^2(-q^2;q^2)_\infty$\\
+$2$ & $-3/2$ & $25/24$ & $2q^{-1}(-q;q)_\infty^2(-q;q^2)_\infty$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{theorem}
+
+\begin{proof}
+\emph{Sufficiency.} Summing over $n_2$ with Euler's identity $\sum_{n\ge0}q^{n(n-1)/2}z^n/(q;q)_n=(-z;q)_\infty$ gives
+\begin{equation}\label{eq:r2euler}
+F_{2,B,0}(q)=\sum_{n\ge0}\frac{q^{n^2+b_1n}}{(q;q)_n}\,(-q^{1/2+b_2-n};q)_\infty .
+\end{equation}
+If $b_2=0$, then $(-q^{1/2-n};q)_\infty=q^{-n^2/2}(-w;q)_n(-w;q)_\infty$, so
+\[
+F_{2,B,0}=(-w;q)_\infty\sum_{n\ge0}\frac{w^{n^2+2b_1n}(-w;w^2)_n}{(w^2;w^2)_n}.
+\] For $b_1=0$ and $b_1=1$ these are the two Göllnitz--Gordon identities \cite{Gordon65,Gollnitz67} in the variable $w$, which give the first two rows. If $b_2=\frac12-s$ with $s\in\{0,1,2\}$, then $(-q^{1-s-n};q)_\infty=q^{-\binom{n+s}2}(-1;q)_{n+s}(-q;q)_\infty$, and in the three cases $(b_1,s)=(0,0),(1,1),(2,2)$ the sum \eqref{eq:r2euler} becomes
+\[
+\sum_{n\ge0}\frac{q^{\binom{n+1}2}(-1;q)_n}{(q;q)_n},\qquad 2\sum_{n\ge0}\frac{q^{\binom{n+1}2}(-q;q)_n}{(q;q)_n},\qquad 2(1+q)q^{-1}\sum_{n\ge0}\frac{q^{\binom{n+1}2}(-q^2;q)_n}{(q;q)_n},
+\]
+each multiplied by $(-q;q)_\infty$. Lebesgue's identity $\sum_{n\ge0}(a;q)_nq^{\binom{n+1}2}/(q;q)_n=(aq;q^2)_\infty(-q;q)_\infty$ \cite{Andrews76} with $a=-1,-q,-q^2$ gives the last three rows. Every product in the table is a quotient of (generalized) Dedekind eta functions in $\tau$ or $\tau/2$, so it becomes a modular function on a congruence subgroup after multiplication by the power of $q$ that makes its order at $i\infty$ match its eta-quotient normalization; for the five rows this power is exactly the displayed $C$.
+
+\emph{Necessity.} Here $t=1-\cos(\pi/4)=1-\frac{\sqrt2}2$, and the saddle point and covariance lie in $\Q(t)=\Q(\sqrt2)$. As in \cref{thm:r9}, take the irrational component of $c_1-\gamma_0$ and both components of $\kappa_2$ and $\kappa_3$; this gives five primitive integer polynomials in $(b_1,b_2)$, of degrees $2,3,3,4,4$. Modulo $p=1000003$ their ideal has a quotient of dimension five, and the ideal of their highest homogeneous parts has a finite quotient. \Cref{lem:transfer} bounds the rational quotient dimension by five. The five pairs in the table are distinct rational zeros, so they are all the zeros, and the first-order condition gives the displayed $C$.
+\end{proof}
+
+The last row is twice $q^{-1}$ times the third. This is the rank-two instance of an even-rank half-shift relation; see \cref{conj:even}.
+
+\subsection{Rank three}
+
+\begin{theorem}[Rank-three classification]\label{thm:r3}
+Let $B=(b_1,b_2,b_3)^\T\in\Q^3$ and $C\in\Q$. Then $F_{3,B,C}$ is a modular function if and only if $(B,C)$ is one of the following pairs.
+\begin{center}
+\begin{tabular}{rrrr}
+\toprule
+$b_1$ & $b_2$ & $b_3$ & $C$\\
+\midrule
+$0$ & $0$ & $0$ & $-7/80$\\
+$0$ & $0$ & $1/2$ & $1/40$\\
+$1$ & $-1$ & $1/2$ & $9/40$\\
+$-1$ & $1$ & $0$ & $17/80$\\
+$-1$ & $1$ & $-1/2$ & $9/40$\\
+$-2$ & $2$ & $-1/2$ & $41/40$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{theorem}
+
+The sufficiency of these six pairs is due to Milas and Wang \cite[Theorems~1.2--1.3]{MW24}. \Cref{app:r3} supplies the exact necessity certificate.
+
+The classification is especially simple in the coordinates
+\begin{equation}\label{eq:r3coords}
+u=b_1+b_2,\qquad v=b_2+2b_3,\qquad z=b_3.
+\end{equation}
+The allowed shifts are precisely those with
+\begin{equation}\label{eq:r3zeros}
+u=0,\qquad v(v-1)=0,\qquad z(4z^2-1)=0.
+\end{equation}
+
+\begin{proof}[Proof of \cref{thm:r3}]
+The asymptotic conditions imply $E_0=\cdots=E_4=0$ for the polynomials defined in \cref{app:r3}. By \cref{lem:r3elim}, $u=0$, $v\in\{0,1\}$ and $z\in\{-\frac12,0,\frac12\}$. The inverse change of coordinates is
+\[
+b_1=u-v+2z,\qquad b_2=v-2z,\qquad b_3=z,
+\]
+and these six choices give the six rows of the table. Substituting them into $C_0(B)$ from \eqref{eq:r3first} gives the displayed scalars. Their modularity is established in \cite{MW24}.
+\end{proof}
+
+\subsection{Rank four}
+
+\begin{theorem}[Rank-four classification]\label{thm:r4}
+Let $B=(b_1,b_2,b_3,b_4)^\T\in\Q^4$ and $C\in\Q$. Then $F_{4,B,C}$ is a modular function if and only if $(B,C)$ is one of the following eight pairs.
+\begin{center}
+\begin{tabular}{rrrrrl}
+\toprule
+$b_1$ & $b_2$ & $b_3$ & $b_4$ & $C$ & Sufficiency\\
+\midrule
+$0$ & $0$ & $0$ & $0$ & $-1/8$ & \cite[(1.20)]{SW26}\\
+$0$ & $-1$ & $1$ & $0$ & $5/24$ & \cite[(1.21)]{SW26}\\
+$0$ & $0$ & $0$ & $1/2$ & $0$ & \cite[(1.22)]{SW26}\\
+$1$ & $-1$ & $1$ & $0$ & $3/8$ & \cite[(1.23)]{SW26}\\
+$1$ & $-1$ & $1$ & $-1/2$ & $1/3$ & \cite[(1.10), Theorem~1.6]{SW26b}\\
+$2$ & $-2$ & $1$ & $-1/2$ & $5/4$ & \cite[(1.12), Theorem~1.6]{SW26b}\\
+$3/2$ & $-3/2$ & $1/2$ & $0$ & $9/16$ & \cite[(1.13), Theorem~1.6]{SW26b}\\
+$1$ & $-1$ & $0$ & $1/2$ & $1/4$ & \cite[(1.14), Theorem~1.6]{SW26b}\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{theorem}
+
+All eight modular examples are known; after a permutation of coordinates the candidate set appears in \cite[Table~3 and the subsequent discussion of $B_8'$]{CW25}. The identities (1.12)--(1.14) of \cite{SW26b} were also proved independently in \cite{Li26}. The content of \cref{thm:r4} is that the list is exhaustive among rational $B$ and $C$.
+
+\begin{proof}[Proof of \cref{thm:r4}]
+Modularity and rationality give the seven obstructions of \cref{app:r4}. By \cref{lem:r4elim}, $B$ is one of the eight listed vectors, and the first-order condition gives the displayed values $C=C_4(B)$. Sufficiency follows from the cited identities. For the last four rows the normalized modular functions are, respectively,
+\[
+6\,\frac{\eta(2\tau)^2\eta(3\tau)^3}{\eta(\tau)^5},\qquad 8\,\frac{\eta(2\tau)^6}{\eta(\tau)^6},\qquad 2\,\frac{\eta(\tau)^3}{\eta(\tau/2)^3},\qquad 4\,\frac{\eta(2\tau)^6}{\eta(\tau)^6};
+\]
+these are consequences of \cite[(1.10), (1.12)--(1.14), Theorem~1.6]{SW26b}.
+\end{proof}
+
+In rank four the fourth cusp coefficient is needed to obtain a radical ideal. We do not claim that this number of coefficients is minimal.
+
+\subsection{Rank five}
+
+\begin{theorem}[Rank-five classification]\label{thm:r5}
+Let $B=(b_1,\dots,b_5)^\T\in\Q^5$ and $C\in\Q$. Define
+\[
+u=b_1+b_2,\quad v=b_3+b_4,\quad x=b_2+2b_5,\quad y=b_4+2b_5,\quad z=b_5.
+\]
+Then $F_{5,B,C}$ is a modular function if and only if
+\begin{equation}\label{eq:r5set}
+u=v=0,\qquad (x,y)\in\{(0,0),(0,1),(1,1)\},\qquad z\in\{-\tfrac12,0,\tfrac12\},
+\end{equation}
+and
+\begin{equation}\label{eq:r5C}
+C=\frac{72x+120y-336z(x+y)+756z^2-55}{336}.
+\end{equation}
+There are exactly nine such pairs $(B,C)$.
+\end{theorem}
+
+The inverse coordinates are $B=(u-x+2z,\ x-2z,\ v-y+2z,\ y-2z,\ z)^\T$. For comparison with \cite[Theorem~5.2]{SW26}, write $B=(a,-a,b,-b,c)^\T$. The nine pairs are as follows.
+\begin{center}
+\begin{tabular}{rrrrl}
+\toprule
+$a$ & $b$ & $c$ & $C$ & Sufficiency\\
+\midrule
+$0$ & $0$ & $0$ & $-55/336$ & \cite[(5.29)]{SW26}\\
+$1$ & $1$ & $1/2$ & $67/168$ & \cite[(5.30)]{SW26}\\
+$-1$ & $-1$ & $0$ & $137/336$ & \cite[(5.31)]{SW26}\\
+$0$ & $0$ & $1/2$ & $-5/168$ & \cite[(5.32)]{SW26}\\
+$0$ & $-1$ & $0$ & $65/336$ & \cite[(5.33)]{SW26}\\
+$1$ & $0$ & $1/2$ & $43/168$ & \cite[(5.34)]{SW26}\\
+$-1$ & $-1$ & $-1/2$ & $67/168$ & \cite[(5.35)]{SW26}\\
+$-2$ & $-2$ & $-1/2$ & $331/168$ & \cite[(5.36)]{SW26}\\
+$-1$ & $-2$ & $-1/2$ & $211/168$ & \cite[(5.37)]{SW26}\\
+\bottomrule
+\end{tabular}
+\end{center}
+Shi and Wang use $S(a,b,c;q)=F_{5,(a,-a,b,-b,c),0}(q^4)$, so their scalar exponents must be divided by four in our normalization. All nine modularity statements are proved in \cite{SW26}; the new content of \cref{thm:r5} is exhaustiveness.
+
+\begin{proof}[Proof of \cref{thm:r5}]
+The cusp conditions and rationality give the eight polynomial obstructions of \cref{app:r5}, and \cref{lem:r5elim} gives \eqref{eq:r5set}. Reducing the first-order scalar polynomial $C_0$ of \cref{app:r5} modulo this ideal gives \eqref{eq:r5C}. The nine resulting pairs are those in the table, whose modularity is proved in \cite[Theorem~5.2]{SW26}.
+\end{proof}
+
+\subsection{Rank six}
+
+\begin{theorem}[Rank-six necessity]\label{thm:r6}
+Let $B\in\Q^6$ and $C\in\Q$. If $F_{6,B,C}$ is a modular function, then $(B,C)$ is one of the following nine pairs.
+\begin{center}
+\begin{tabular}{rrrrrrr}
+\toprule
+$b_1$ & $b_2$ & $b_3$ & $b_4$ & $b_5$ & $b_6$ & $C$\\
+\midrule
+$0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $-13/64$\\
+$0$ & $0$ & $0$ & $-1$ & $1$ & $0$ & $11/64$\\
+$0$ & $-1$ & $1$ & $-1$ & $1$ & $0$ & $27/64$\\
+$1$ & $-1$ & $1$ & $-1$ & $1$ & $0$ & $35/64$\\
+$0$ & $0$ & $0$ & $0$ & $0$ & $1/2$ & $-1/16$\\
+$1$ & $-1$ & $0$ & $0$ & $0$ & $1/2$ & $1/4$\\
+$1$ & $-1$ & $1$ & $-1$ & $0$ & $1/2$ & $7/16$\\
+$1$ & $-1$ & $1$ & $-1$ & $1$ & $-1/2$ & $1/2$\\
+$2$ & $-2$ & $1$ & $-1$ & $1$ & $-1/2$ & $23/16$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The first and fifth pairs are modular by \cite{CTW26}, and the second and third by \cref{thm:evencomp}.
+\end{theorem}
+
+\begin{proof}
+Here $t=1-\cos(\pi/8)$ has degree four over $\Q$. Taking the three irrational components of $c_1-\gamma_0$ and all four components of $\kappa_2$ and $\kappa_3$ gives eleven primitive integer polynomials in $B$, of degrees $2,2,2,3,3,3,3,4,4,4,4$. Modulo $p=1000003$ their ideal has a quotient of dimension nine, and the ideal of their highest homogeneous parts has a finite quotient (of dimension $103$). By \cref{lem:transfer} the rational quotient has dimension at most nine. The nine listed vectors are distinct rational zeros, so the ideal is radical with exactly these zeros, and the first-order condition gives the displayed $C$. The modularity of the first and fifth pairs is the principal and last-coordinate half-shift case of \cite{CTW26}; that of the second and third is \cref{cor:r6more}.
+\end{proof}
+
+None of the series other than the first and fifth is an infinite product; their leading coefficients are $5,9,5,6,15,20,30$. As $q$-series to order $q^{24}$, the last series equals $2q^{-1}$ times the seventh, consistently with $C$. We expect all nine pairs to be modular: by \cref{prop:evenwron}, the remaining five would follow from the even-rank Wronskian identities of \cref{conj:evenwron}.
+
+\subsection{Rank seven}
+
+\begin{theorem}[Rank-seven necessity]\label{thm:r7nec}
+Let $B\in\Q^7$ and $C\in\Q$. If $F_{7,B,C}$ is a modular function, then $(B,C)$ is one of the twelve pairs of \cref{conj:odd} with $m=3$.
+\end{theorem}
+
+\begin{proof}
+Let $t=1-\cos(\pi/9)$, the root in $(1/20,7/100)$ of
+\[
+8t^3-24t^2+18t-1=0.
+\]
+The saddle coordinates and the covariance matrix lie in $\Q(t)$. Compute the first three cusp coefficients, and take the two irrational components of $c_1-\gamma_0$ and all three components of each of $\kappa_2$ and $\kappa_3$. This gives eight rational obstruction polynomials. Clear denominators and remove the integer content of each; the resulting integer polynomials are recorded in the accompanying data (\cref{app:verification}). Make the invertible change of coordinates
+\[
+z=b_7,\qquad u_j=b_{2j-1}+b_{2j},\qquad x_j=b_{2j}+2z\qquad(1\le j\le3),
+\]
+so that $b_{2j-1}=u_j+2z-x_j$ and $b_{2j}=x_j-2z$. Let $I$ be the ideal generated by the eight transformed polynomials in $\Q[u_1,u_2,u_3,x_1,x_2,x_3,z]$. We prove that $I$ equals
+\begin{equation}\label{eq:r7ideal}
+J=\bigl(u_i,\ x_i^2-x_i\ (1\le i\le3),\ x_ix_j-x_i\ (1\le i<j\le3),\ 4z^3-z\bigr).
+\end{equation}
+
+Take $p=1000003$, and let $\bar I$ and $\bar J$ be generated by the reductions of the chosen integer generators of $I$ and $J$. An exact finite-field calculation in \textsc{Singular} \cite{Singular} gives $\bar I=\bar J$, with quotient of dimension twelve. For the top homogeneous parts of the same eight polynomials, the quotient has Hilbert series
+\[
+1+7s+26s^2+67s^3+131s^4+202s^5+247s^6+231s^7+141s^8,
+\]
+where $s$ is a formal grading variable. In particular, every monomial of degree nine lies in the ideal generated by the top parts. \Cref{lem:transfer} therefore gives $\dim_\Q\Q[u,x,z]/I\le12$, where $u=(u_1,u_2,u_3)$ and $x=(x_1,x_2,x_3)$.
+
+The twelve rational zeros of $J$ satisfy all eight obstructions, by exact substitution. Their evaluation map is surjective onto $\Q^{12}$; equivalently, the evaluation matrix of the monomials $\{1,x_1,x_2,x_3\}\cdot\{1,z,z^2\}$ is invertible. Hence $\Q[u,x,z]/I$ has dimension at least twelve. Equality follows, the evaluation map is an isomorphism, and $I=J$ is radical. Its twelve zeros have $u_1=u_2=u_3=0$, $0\le x_1\le x_2\le x_3\le1$, $x_i\in\Z$ and $z\in\{-\frac12,0,\frac12\}$. Writing $k=x_1+x_2+x_3$, the first-order condition reduces to
+\[
+C=-\frac{35}{144}+\frac{k(8-k)}{18}-kz+\frac{13}4z^2,
+\]
+which is the specialization of \cref{conj:odd}.
+\end{proof}
+
+\begin{corollary}[Rank-seven classification]\label{cor:r7}
+Let $B\in\Q^7$ and $C\in\Q$. Then $F_{7,B,C}$ is a modular function if and only if $(B,C)$ is one of the twelve pairs of \cref{conj:odd} with $m=3$.
+\end{corollary}
+
+\begin{proof}
+Necessity is \cref{thm:r7nec}. \Cref{thm:basic,thm:k2} give sufficiency for $k=0,1,2,3$ in all three sectors.
+\end{proof}
+
+\subsection{Rank nine}
+In this rank it is efficient to derive the cusp conditions directly over a split prime field. Two facts justify their use in \cref{lem:transfer}: their rational coefficients are integral at the chosen prime, and reduction preserves their total degrees.
+
+\begin{theorem}[Rank-nine classification]\label{thm:r9}
+Let $B\in\Q^9$ and $C\in\Q$. Then $F_{9,B,C}$ is a modular function if and only if $(B,C)$ is one of the fifteen pairs of \cref{conj:odd} with $m=4$.
+\end{theorem}
+
+\begin{proof}
+Sufficiency follows from \cref{thm:basic,thm:k2,thm:k3to6}. For necessity, put
+\[
+t=1-\cos(\pi/11),\qquad f(t)=32t^5-144t^4+224t^3-140t^2+30t-1=0.
+\]
+The polynomial $f$ is irreducible, and the relevant embedding is its smallest real root, which lies between $1/25$ and $41/1000$. The exact saddle coordinates and covariance matrix lie in $K=\Q(t)$; their positivity, the saddle equations and the covariance inverse are checked over $K$.
+
+Expand the three polynomials $c_1-\gamma_0$, $\kappa_2$ and $\kappa_3$ in the basis $1,t,t^2,t^3,t^4$ of $K$. Take the four nonconstant components of the first and all five components of each of the other two. These fourteen rational polynomials are necessary conditions for modularity. Introduce
+\[
+z=b_9,\qquad u_i=b_{2i-1}+b_{2i},\qquad x_i=b_{2i}+2z\qquad(1\le i\le4),
+\]
+write $u=(u_1,\dots,u_4)$ and $x=(x_1,\dots,x_4)$, and let $I$ be the ideal they generate in $\Q[u,x,z]$.
+
+Choose $p=1000033$. All coefficients of the exact saddle quantities $Q_i$, $\xi_i$ and $M_{ij}$, written in the power basis of $K$, are integral at $p$. The leading coefficient and the discriminant of $f$ are units in $\Z_{(p)}$, and so are the Bernoulli and factorial denominators needed through order $h^6$. The recurrences for $H_a$, $D_a$ and the Gaussian moments therefore show that all fourteen polynomials have coefficients in $\Z_{(p)}$, and their denominators can be cleared by integers prime to $p$.
+
+Modulo $p$, the polynomial $f$ has five distinct roots. We evaluate the Gaussian recurrence at each root and recover the power-basis components by inverse Vandermonde interpolation; comparison with the characteristic-zero saddle data identifies each embedding. The resulting polynomials modulo $p$ have degrees
+\[
+2,2,2,2,\quad3,3,3,3,3,\quad4,4,4,4,4.
+\]
+By \cref{lem:degree} these are also upper bounds for the degrees in characteristic zero. Hence reduction preserves the degrees, and the computed highest-degree parts are the reductions of the highest-degree parts of the rational polynomials.
+
+An exact $F_4$ calculation over $\F_p$ gives the reduced ideal
+\begin{equation}\label{eq:r9ideal}
+\bar I=\bigl(u_i,\ x_i^2-x_i\ (1\le i\le4),\ x_ix_j-x_i\ (1\le i<j\le4),\ 4z^3-z\bigr),
+\end{equation}
+whose quotient has dimension fifteen. The ideal generated by the highest-degree parts has Hilbert series
+\[
+1+9s+41s^2+124s^3+271s^4+431s^5+449s^6+106s^7,
+\]
+and in particular contains every monomial of degree eight. The affine computation uses exact sparse linear algebra in \textsf{msolve} \cite{msolve}, and the homogeneous one uses \textsc{Singular} \cite{Singular}. \Cref{lem:transfer} gives $\dim_\Q\Q[u,x,z]/I\le15$.
+
+The fifteen modular pairs supplied by the companion theorems give fifteen distinct rational zeros of $I$, and their evaluation map is surjective onto $\Q^{15}$. Hence the quotient has dimension exactly fifteen, and $I$ is the radical ideal of these points; equivalently, $I$ is generated over $\Q$ by the polynomials displayed in \eqref{eq:r9ideal}. Thus $u_i=0$, the $x_i$ form an ordered Boolean chain, and $z\in\{-\frac12,0,\frac12\}$. The first-order equation, checked exactly over $K$ at all fifteen points, gives
+\[
+C=-\frac{57}{176}+\frac{k(10-k)}{22}-kz+\frac{17}4z^2,\qquad k=x_1+x_2+x_3+x_4.
+\]
+This completes the proof of necessity.
+\end{proof}

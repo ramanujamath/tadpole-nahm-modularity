@@ -1,0 +1,84 @@
+\section{Cusp obstructions and specialization}\label{sec:cusp}
+
+\subsection{Cusp coefficients}
+We use the asymptotic theorem of Vlasenko and Zwegers \cite[Theorem~2.3 and Corollary~3.2]{VZ11}; theorem numbering refers to the arXiv version. Write $F_{A,B,C}$ for \eqref{eq:nahm} with $T_r$ replaced by a positive definite rational matrix $A$. Let $Q_j\in(0,1)$ solve
+\[
+1-Q_i=\prod_{j=1}^rQ_j^{A_{ij}},\qquad \xi_i=\frac{Q_i}{1-Q_i},\qquad M=(A+\diag\xi)^{-1}.
+\]
+There is a unique such solution. With $q=e^{-\varepsilon}$ and $\varepsilon\downarrow0$, their expansion has the form
+\begin{equation}\label{eq:asymp}
+F_{A,B,C}(e^{-\varepsilon})\sim e^{\alpha/\varepsilon}\beta e^{-(C+\gamma_0)\varepsilon}\bigl(1+c_1\varepsilon+c_2\varepsilon^2+c_3\varepsilon^3+\cdots\bigr),
+\end{equation}
+where $\beta>0$, $\gamma_0=r/24+\sum_i\xi_i/12$, and $\alpha=\sum_i(L(1)-L(Q_i))$. Here $L(x)=\Li_2(x)+\frac12\log x\log(1-x)$ is the Rogers dilogarithm and $\Li_2(x)=\sum_{n\ge1}x^n/n^2$ for $0<x<1$. The constants $c_j$ are Gaussian moments specified below.
+
+At a cusp, a nonzero modular function has an exponential leading term and exponentially small relative corrections. Comparing this with \eqref{eq:asymp} gives the necessary conditions
+\begin{equation}\label{eq:cuspcond}
+C=c_1-\gamma_0,\qquad \kappa_2:=c_2-\tfrac12c_1^2=0,\qquad \kappa_3:=c_3-c_1c_2+\tfrac13c_1^3=0.
+\end{equation}
+The same comparison shows that a modular Nahm sum in this setting has weight zero. Conditions \eqref{eq:cuspcond} are only necessary; we make no sufficiency claim for truncated cusp expansions.
+
+We now give the finite procedure used to compute the coefficients, for general rank $r$ and truncation order $N$. Let $X=(X_1,\dots,X_r)$ be a centred real Gaussian vector with covariance matrix $M$. Define polynomials
+\[
+P_1(x)=x,\qquad P_{n+1}(x)=x(1+x)P_n'(x),
+\]
+so that $P_n(\xi_i)=\Li_{1-n}(Q_i)$. Let $\mathcal B_j$ be the Bernoulli numbers defined by $t/(e^t-1)=\sum_{j\ge0}\mathcal B_jt^j/j!$, so $\mathcal B_1=-\frac12$. For $1\le k\le 2N$, put
+\[
+H_k(X)=\one_{k=1}\sum_{i=1}^r\Bigl(b_i+\frac{\xi_i}2\Bigr)X_i-\sum_{i=1}^r\sum_{\substack{g\ge3,\ 0\le j\le g\\ g+j-2=k}}\frac{\mathcal B_j}{j!\,(g-j)!}P_{g-1}(\xi_i)X_i^{g-j},
+\]
+where $\one_{k=1}$ is $1$ for $k=1$ and $0$ otherwise. Define $D_0=1$ and
+\[
+D_\ell=\frac1\ell\sum_{k=1}^\ell kH_kD_{\ell-k}\quad(1\le \ell\le2N),\qquad c_j=\E[D_{2j}(X)]\quad(1\le j\le N).
+\]
+This is coefficient extraction from $\exp\bigl(\sum_{k=1}^{2N}H_kh^k\bigr)$ with $h=\sqrt\varepsilon$.
+
+The Gaussian moments are determined without integration. If $\mu(a)=\E\bigl[\prod_{j=1}^rX_j^{a_j}\bigr]$, then $\mu(0)=1$, moments of odd total degree vanish, and, whenever $a_i>0$,
+\[
+\mu(a)=\sum_{j=1}^r(a_j-\delta_{ij})M_{ij}\,\mu(a-e_i-e_j),
+\]
+where terms with zero prefactor are omitted.
+
+\begin{remark}\label{rem:cusp-check}
+The procedure above is the expansion of \cite[Theorem~2.3]{VZ11} written in moment form. In rank three, the resulting saddle point and first-order condition agree with those computed in \cite[Section~4.1]{MW24} (see \cref{app:r3}).
+\end{remark}
+
+\subsection{Degree control}
+
+\begin{lemma}[Degree of a logarithmic cusp coefficient]\label{lem:degree}
+In every rank, the coefficient $\kappa_j(B)$ of $h^{2j}$ in
+\[
+\log\E\Bigl[\exp\Bigl(\sum_{a\ge1}h^aH_a(X)\Bigr)\Bigr]
+\]
+has total degree at most $j+1$ in $B$. In particular, $c_1-\gamma_0$, $\kappa_2$ and $\kappa_3$ have degrees at most two, three and four, respectively.
+\end{lemma}
+
+\begin{proof}
+The only $B$-dependent term in the exponent is $h\sum_ib_iX_i$. By the definition of $H_a$, every other monomial of order $h^a$ has Gaussian degree at most $a+2$. Expand a Gaussian moment as a sum over pairings, drawing one edge for each pair of Gaussian factors. Taking the logarithm cancels the disconnected pairing graphs, by the moment--cumulant formula.
+
+Consider a surviving connected graph with $\ell$ vertices from $h\sum_ib_iX_i$ and $s$ other vertices, of orders $a_1,\dots,a_s$ and Gaussian degrees $d_1,\dots,d_s$. It has $(\ell+\sum_id_i)/2$ edges, and since it is connected this number is at least $\ell+s-1$. Since $d_i\le a_i+2$,
+\[
+\ell\le\sum_i(d_i-2)+2\le\sum_ia_i+2.
+\]
+The graph contributes to $h^{2j}$ only if $\ell+\sum_ia_i=2j$, and therefore $\ell\le j+1$. The degree in $B$ is $\ell$. Subtracting the $B$-independent quantity $\gamma_0$ does not affect the first-order bound.
+\end{proof}
+
+\subsection{Transfer from a finite field}
+The following criterion replaces an elimination over $\Q$ by one over a prime field. Its hypothesis on highest homogeneous parts excludes the loss of solutions at infinity; an affine calculation at a single prime would not suffice.
+
+\begin{lemma}[Finite specialization]\label{lem:transfer}
+Let $f_1,\dots,f_s\in\Z[X_1,\dots,X_n]$ be nonzero polynomials, and let $f_i^{\mathrm{top}}$ be the homogeneous part of $f_i$ of highest total degree. Let $p$ be a prime, and let a bar denote reduction modulo $p$. Write $X=(X_1,\dots,X_n)$ and suppose that
+\[
+\F_p[X]/\bigl(\overline{f_1^{\mathrm{top}}},\dots,\overline{f_s^{\mathrm{top}}}\bigr)\quad\text{is finite-dimensional.}
+\]
+If $d=\dim_{\F_p}\F_p[X]/(\bar f_1,\dots,\bar f_s)$, then
+\[
+\dim_\Q\Q[X]/(f_1,\dots,f_s)\le d.
+\]
+\end{lemma}
+
+\begin{proof}
+Put $R=\Z_{(p)}$, the ring of rational numbers whose denominators are not divisible by $p$. By hypothesis, for some $N$ the degree-$N$ monomial multiples of the $\overline{f_i^{\mathrm{top}}}$ span all homogeneous polynomials of degree $N$ over $\F_p$. The corresponding integer coefficient matrix therefore has a maximal minor that is a unit in $R$, so every monomial of degree $N$ is an $R$-linear combination of monomial multiples of the $f_i^{\mathrm{top}}$. Replacing each top part by $f_i$ expresses that monomial, modulo $(f_1,\dots,f_s)$, in terms of monomials of smaller degree. By induction,
+\[
+A=R[X]/(f_1,\dots,f_s)
+\]
+is generated as an $R$-module by the monomials of degree less than $N$. Choose lifts to $A$ of a basis of $A/pA\cong\F_p[X]/(\bar f_1,\dots,\bar f_s)$. By Nakayama's lemma these $d$ elements generate $A$ over the local ring $R$. Tensoring with $\Q$ proves the bound.
+\end{proof}

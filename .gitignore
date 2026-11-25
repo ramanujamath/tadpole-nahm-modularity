@@ -1,0 +1,16 @@
+# LaTeX build files
+*.aux
+*.log
+!computations/elimination/rank6_run.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.bbl
+*.blg
+# Python
+__pycache__/
+*.pyc
+# intermediate data produced by run_rank6.py
+*.pkl

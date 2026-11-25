@@ -1,0 +1,371 @@
+\section{Theta formulas and the basic companions}\label{sec:theta}
+
+\subsection{The simultaneous shift}
+Let $m\ge1$, $r=2m+1$, $a=(a_1,\dots,a_m)\in\Q^m$ and $c\in\Q$. Define
+\[
+B(a,c)=(a_1,-a_1,\dots,a_m,-a_m,c)^\T,\qquad S_m(a,c;q)=F_{2m+1,B(a,c),0}(q).
+\]
+The following consequence of the rank reduction of Shi and Wang explains a relation visible in the rank-three and rank-five tables. In rank five it specializes to \cite[(5.45)]{SW26} after replacing $q$ by $q^4$.
+
+\begin{lemma}[Simultaneous shift]\label{lem:simshift}
+For every integer $h$,
+\begin{equation}\label{eq:simshift}
+S_m(a+2h\one,c+h;q)=q^{-h\sum_{j=1}^ma_j-mh^2}\,\frac{(-q^{c+h+1/2};q)_\infty}{(-q^{c+1/2};q)_\infty}\,S_m(a,c;q).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For $d\in\frac12\Z$, put
+\[
+\Theta_a(d;q)=\sum_{\ell\in\Z}q^{(\ell-d)^2-a\ell}.
+\]
+The change of summation variable $\ell\mapsto\ell+h$ gives
+\[
+\Theta_{a+2h}(d;q)=q^{-ha-h^2-2hd}\,\Theta_a(d;q).
+\]
+By \cite[Theorem~1.2, (1.11)]{SW26}, setting $n_0=0$ yields
+\begin{multline*}
+S_m(a,c;q)=\frac{(-q^{c+1/2};q)_\infty}{(q;q)_\infty^m}\sum_{n_1,\dots,n_m\ge0}\frac{q^{\frac14\sum_{j=1}^m(n_j-n_{j-1})^2}\,q^{\sum_{j=1}^{m-1}(a_{j+1}-a_j)n_j+(c-a_m)n_m}}{\prod_{j=1}^m(q;q)_{n_j}}\\
+\times\prod_{j=1}^m\Theta_{a_j}\bigl((n_{j-1}-n_j)/2;q\bigr).
+\end{multline*}
+Under the simultaneous shift, the second exponential gains $q^{-hn_m}$. The product of theta factors gains $q^{-h\sum_ja_j-mh^2+hn_m}$, since $\sum_j(n_{j-1}-n_j)=-n_m$. These factors combine as asserted. All changes of variables are justified by absolute convergence.
+\end{proof}
+
+In particular, let $x_j\in\{0,1\}$ and $k=\sum_jx_j$, and define
+\[
+B_\pm=(\pm1-x_1,\ x_1\mp1,\ \dots,\ \pm1-x_m,\ x_m\mp1,\ \pm\tfrac12)^\T.
+\]
+Taking $h=-1$ in \cref{lem:simshift} gives the exact identity
+\begin{equation}\label{eq:halfshift}
+F_{r,B_-,C+k}(q)=2F_{r,B_+,C}(q)\qquad(C\in\Q).
+\end{equation}
+Thus modularity in the two half-shift families is equivalent. No ordering of the $x_j$ is needed for this identity. As one consequence, the all-rank modularity of the last-coordinate half-shift \cite{CTW26} also gives the modularity, for every odd $r=2m+1$, of
+\[
+F_{r,(-2,2,\dots,-2,2,-1/2),\,m+\frac{r(4-r)}{24(r+2)}}.
+\]
+
+\subsection{The proposed Wronskians}
+For the remainder of the paper, let $m\ge1$, $r=2m+1$, $L=2m+3$ and
+\[
+\nu=\frac{r(r-1)}2=m(2m+1).
+\]
+For $0\le k\le m$, take $x_1=\cdots=x_{m-k}=0$ and $x_{m-k+1}=\cdots=x_m=1$. Write $B(k,z)$ and $C(k,z)$ for the vector and scalar of \cref{conj:odd}, and put
+\[
+S^{(z)}_{m,k}(q)=F_{r,B(k,z),0}(q).
+\]
+It suffices to consider $z=0,\frac12$, since \eqref{eq:halfshift} determines the series with $z=-\frac12$.
+
+Define increasing tuples by deleting the indicated entry:
+\begin{align*}
+\rho^{(0)}_k&=(1,2,\dots,m+1)\setminus\{m+1-k\}, & \rho^{(0)}_*&=(1,2,\dots,m),\\
+\rho^{(1/2)}_k&=(\tfrac12,\tfrac32,\dots,m+\tfrac12)\setminus\{k+\tfrac12\}, & \rho^{(1/2)}_*&=(\tfrac12,\tfrac32,\dots,m-\tfrac12).
+\end{align*}
+Deletion preserves the order of the remaining entries. For $v=(v_1,\dots,v_m)$, define
+\[
+\chi(v)=\prod_{i=1}^mv_i\prod_{1\le i<j\le m}(v_i^2-v_j^2),\qquad \|v\|^2=\sum_{i=1}^mv_i^2.
+\]
+
+\begin{conjecture}[Companion Wronskian identity]\label{conj:wron}
+For $z\in\{0,\frac12\}$ and $0\le k\le m$, writing $\rho=\rho^{(z)}_k$, one has
+\begin{equation}\label{eq:wron}
+S^{(z)}_{m,k}(q)=\frac{(-q^{1/2+z};q)_\infty^r}{(q;q)_\infty^\nu}\sum_{v\in\rho+L\Z^m}\frac{\chi(v)}{\chi(\rho^{(z)}_*)}\,q^{\frac{\|v\|^2-\|\rho\|^2}{2L}}.
+\end{equation}
+\end{conjecture}
+
+The cases $(k,z)=(0,0)$ and $(m,\frac12)$ are the principal and last-coordinate half-shift formulas of Chern, Tran and Wakhare \cite[Theorem~1.4]{CTW26}, which are based on \cite{BW15}. \Cref{thm:basic} proves the cases $k\in\{0,1,m\}$, \cref{thm:k2} adds $k=2$, and \cref{thm:k3to6} adds $k=3,4,5,6$.
+
+\begin{proposition}[Modularity of the proposed right-hand sides]\label{prop:rhs-modular}
+Let $R^{(z)}_{m,k}$ denote the right-hand side of \eqref{eq:wron}. Then $q^{C(k,z)}R^{(z)}_{m,k}(q)$ is a modular function on a congruence subgroup. Consequently, \cref{conj:wron} implies the sufficiency direction of \cref{conj:odd}.
+\end{proposition}
+
+\begin{proof}
+For rational $a$, define the unary theta series
+\[
+\theta_{a,L}(q)=\sum_{v\in a+L\Z}v\,q^{v^2/(2L)},\qquad \mathcal D=q\frac{d}{dq}.
+\]
+Expanding the determinant and using the Vandermonde identity gives
+\[
+\det\bigl(\mathcal D^{i-1}\theta_{\rho_j,L}\bigr)_{i,j=1}^m=\frac{(-1)^{\binom m2}}{(2L)^{\binom m2}}\sum_{v\in\rho+L\Z^m}\chi(v)\,q^{\|v\|^2/(2L)}.
+\]
+The theta series $\theta_{\rho_j,L}$ have weight $3/2$ on a common congruence subgroup. Their Wronskian has weight $3m/2+m(m-1)=\nu/2$: the lower-order derivative terms in its transformation law form a triangular matrix and do not alter the determinant. This is the Wronskian argument used in \cite{MW24,CTW26}.
+
+Put
+\[
+E_0(\tau)=\frac{\eta(\tau)^2}{\eta(\tau/2)\eta(2\tau)},\qquad E_{1/2}(\tau)=\frac{\eta(2\tau)}{\eta(\tau)}.
+\]
+The product identities
+\[
+(-q^{1/2};q)_\infty=q^{1/48}E_0(\tau),\qquad (-q;q)_\infty=q^{-1/24}E_{1/2}(\tau)
+\]
+and direct evaluation of the sums of squares give
+\[
+C(k,0)=\frac{\|\rho^{(0)}_k\|^2}{2L}-\frac{r^2}{48},\qquad
+C(k,\tfrac12)=\frac{\|\rho^{(1/2)}_k\|^2}{2L}+\frac{r(3-r)}{48}.
+\]
+It follows that
+\[
+q^{C(k,z)}R^{(z)}_{m,k}(q)=\frac{E_z(\tau)^r}{\eta(\tau)^\nu\,\chi(\rho^{(z)}_*)}\sum_{v\in\rho^{(z)}_k+L\Z^m}\chi(v)\,q^{\|v\|^2/(2L)}.
+\]
+The weights cancel. Theta series and eta quotients have finite multiplier systems on congruence subgroups and are meromorphic at the cusps, so restriction to a common congruence subgroup gives the assertion.
+\end{proof}
+
+\subsection{Leading coefficients}
+The constants in \eqref{eq:wron} are forced by the Nahm sums; they are not fitted separately in each rank.
+
+\begin{proposition}[Leading coefficients]\label{prop:leading}
+The series $S^{(0)}_{m,k}$ and $S^{(1/2)}_{m,k}$ have no negative powers of $q$. Their constant terms are, respectively,
+\[
+d^{(0)}_{m,k}=\binom{2m}{k}-\binom{2m}{k-2},\qquad d^{(1/2)}_{m,k}=\binom{2m+1}{m-k}.
+\]
+These equal $\chi(\rho^{(z)}_k)/\chi(\rho^{(z)}_*)$, the constant terms of the proposed right-hand sides.
+\end{proposition}
+
+\begin{proof}
+Put $n_0=0$ and $a_i=n_i-n_{i-1}$, so that $n_j=\sum_{i=1}^ja_i\ge0$. If $E$ denotes the exponent in the unnormalized Nahm summand, then
+\[
+E=\frac12\sum_{i=1}^ra_i^2+zn_r-\sum_{j=1}^m(2z-x_j)a_{2j}.
+\]
+For $z=0$ this can be written as
+\[
+E=\frac{n_r}2+\sum_{i\notin I}\frac{a_i(a_i-1)}2+\sum_{i\in I}\frac{a_i(a_i+1)}2,\qquad I=\{2m-2k+2,\,2m-2k+4,\,\dots,\,2m\}.
+\]
+For $z=\frac12$ it becomes
+\[
+E=\sum_{i\in J}\frac{a_i(a_i-1)}2+\sum_{i\notin J}\frac{a_i(a_i+1)}2,\qquad J=\{2,4,\dots,2m-2k\}.
+\]
+All terms are nonnegative. Since each denominator has constant term one, the constant terms count the paths for which every displayed term vanishes.
+
+We evaluate these path counts. On the basis $e_h$ indexed by integers $h\ge0$, let $Ue_h=e_{h+1}$, let $Ve_0=0$ and $Ve_h=e_{h-1}$ for $h\ge1$. Put $U_+=\Id+U$, $U_-=\Id+V$ and $J_0=U_-U_+=2\Id+U+V$, where $\Id$ is the identity operator. Let $[e_h]f$ denote the coefficient of $e_h$ in $f$, and let $\lambda(f)$ be the sum of the coefficients of $f$. The two zero-energy path counts are
+\[
+[e_0]\,J_0^kU_+^{2(m-k)}e_0\qquad\text{and}\qquad \lambda\bigl(U_-^{2k}J_0^{m-k}e_0\bigr).
+\]
+Reflection at height $-1$ gives
+\[
+[e_a]\,J_0^je_0=\Delta_j(a):=\binom{2j}{j-a}-\binom{2j}{j-a-2}.
+\]
+Here and below $\binom Nb=0$ unless $0\le b\le N$. By the symmetry of $J_0$ and Vandermonde convolution, the first count is
+\[
+\sum_{a\ge0}\binom{2(m-k)}a\Delta_k(a)=\binom{2m}k-\binom{2m}{k-2}.
+\]
+Writing $s=m-k$, the second count is
+\[
+\sum_{a\ge0}\Delta_s(a)\sum_{d=0}^a\binom{2k}d=\sum_{d\ge0}\binom{2k}d\left(\binom{2s}{s-d}+\binom{2s}{s-d-1}\right)=\binom{2m+1}s.
+\]
+Finally, direct cancellation in the finite products defining $\chi$ gives the same binomial formulas for the two ratios in the statement. Every coordinate of $\rho^{(z)}_k$ lies strictly between $0$ and $L/2$, so this tuple is the unique point of its lattice coset with minimal norm. Thus its contribution is exactly the constant term of the right-hand side of \eqref{eq:wron}.
+\end{proof}
+
+\subsection{The basic companion theorem}
+
+\begin{theorem}[Basic companions]\label{thm:basic}
+For every $m\ge1$, identity \eqref{eq:wron} holds for $k\in\{0,1,m\}$ and $z\in\{0,\frac12\}$. Consequently, $F_{2m+1,B(k,z),C(k,z)}$ is a modular function for
+\[
+k\in\{0,1,m\},\qquad z\in\{-\tfrac12,0,\tfrac12\}.
+\]
+For $m\ge2$ these are nine distinct pairs.
+\end{theorem}
+
+The proof uses two identities of Bartlett and Warnaar \cite[Theorems~3.7 and 5.2]{BW15}; we give the intervening determinant calculation and the specialization factors explicitly.
+
+\subsection{Hall--Littlewood boundary formulas}
+Throughout the boundary calculations, $w=q^{1/2}$, $L=2m+3$ and $\nu=m(2m+1)$. From here to the end of \cref{sec:cert}, $x=(x_1,\dots,x_m)$ denotes a vector of Hall--Littlewood variables; the Boolean coordinates of \cref{conj:odd} do not appear in these sections. A partition $\lambda$ is a finite weakly decreasing sequence of positive integers; $|\lambda|$ is its sum, $\ell(\lambda)$ its length, and $m_j(\lambda)$ the multiplicity of $j$. Define
+\begin{equation}\label{eq:Hdef}
+\HL_m(t;x;q)=\sum_{\lambda:\ \lambda_1\le2}q^{|\lambda|/2}\,t^{m_1(\lambda)}\,P'_\lambda(x_1,x_1^{-1},\dots,x_m,x_m^{-1};q),
+\end{equation}
+including the empty partition, whose summand is $1$. Here $P'_\lambda(X;q)=P_\lambda[X/(1-q);q]$ is the modified Hall--Littlewood symmetric function: $X/(1-q)$ replaces each letter $X_i$ by $X_i,X_iq,X_iq^2,\dots$. The ordinary Hall--Littlewood functions are determined, for $N\ge\ell(\lambda)$, by
+\[
+P_\lambda(X_1,\dots,X_N;q)=\frac1{v_\lambda(q)}\sum_{\sigma\in\mathfrak S_N}\sigma\Bigl(X_1^{\lambda_1}\cdots X_N^{\lambda_N}\prod_{i<j}\frac{X_i-qX_j}{X_i-X_j}\Bigr),\qquad v_\lambda(q)=\prod_{j\ge0}\frac{(q;q)_{m_j(\lambda)}}{(1-q)^{m_j(\lambda)}}.
+\]
+Zero parts are appended to length $N$, so $m_0(\lambda)=N-\ell(\lambda)$, and $\mathfrak S_N$ acts by permuting the variables. Stable specialization defines the symmetric function used in \eqref{eq:Hdef}.
+
+For generic $x=(x_1,\dots,x_m)$ put
+\begin{align*}
+D_m(x;q)&=(q;q)_\infty^m\prod_{i=1}^m(qx_i^2,qx_i^{-2};q)_\infty\prod_{i<j}(qx_ix_j,qx_i/x_j,qx_j/x_i,q/(x_ix_j);q)_\infty,\\
+P_t(x)&=\frac{\prod_i(-wtx_i,-wt/x_i;q)_\infty}{D_m(x;q)},\\
+\delta_C(x)&=\det\bigl(x_i^j-x_i^{-j}\bigr)_{i,j=1}^m,\qquad \delta_B(x)=\det\bigl(x_i^{j-1/2}-x_i^{-j+1/2}\bigr)_{i,j=1}^m.
+\end{align*}
+For the rational functions and half-integral Laurent polynomials below, at values without poles on $xq^\Z$, set
+\[
+\mu_x[f]=\sum_{\ell\in\Z}q^{L\ell^2/2}x^{L\ell}f(xq^\ell),\qquad \Phi_a(x)=\mu_x[y^a-y^{-a}],
+\]
+and
+\[
+\Psi_j(x)=\mu_x\left[\frac{y^j-y^{-j}}{1+w^2+w(y+y^{-1})}\right].
+\]
+The letter $y$ denotes the argument of $f$ inside $\mu_x$. Powers are taken with a fixed branch of the logarithm on a neighbourhood of the relevant points: the evaluations below are first made for $0<q<1$ and positive variables, and then continued analytically. Gaussian decay gives normal convergence away from the poles.
+
+\begin{lemma}[Boundary specialization]\label{lem:boundary}
+For rational $v,c$, at points where the expressions are defined,
+\begin{equation}\label{eq:boundary}
+S_m(-2v\one,c;q)=(-q^{c+1/2};q)_\infty\,\HL_m(q^{c+v};q^v\one;q).
+\end{equation}
+For generic $x$ one has
+\begin{align}
+\HL_m(1;x;q)&=P_1(x)\frac{\det(\Phi_j(x_i))_{i,j=1}^m}{\delta_C(x)},\label{eq:H1}\\
+\HL_m(q;x;q)&=P_1(x)\frac{\det(\Psi_j(x_i))_{i,j=1}^m}{\delta_C(x)},\label{eq:Hq}\\
+\HL_m(w;x;q)&=P_w(x)\frac{\det(\Phi_{j-1/2}(x_i))_{i,j=1}^m}{\delta_B(x)}.\label{eq:Hw}
+\end{align}
+Specializations at coincident variables mean the removable limits.
+\end{lemma}
+
+\begin{proof}
+Sum over the last coordinate of the Nahm sum using Euler's identity
+\[
+\sum_{n\ge0}\frac{q^{n(n-1)/2}z^n}{(q;q)_n}=(-z;q)_\infty.
+\]
+The resulting factor is $(-q^{c+1/2-h};q)_\infty$, where $h$ is the remaining last coordinate. Extract $(-q^{c+1/2};q)_\infty$ and reverse the order of the remaining $2m$ coordinates. In the notation of \cite[(3.21)]{BW15}, the series becomes $F_{1,2m}(q^v,0,q^{c+v};q)$. Their Theorem~3.7 holds for these parameters and identifies this expression with the series on the right of \eqref{eq:boundary}.
+
+For the determinant formulas, take the level parameter equal to $1$ in \cite[(5.6a)]{BW15}, let their parameter $b$ tend to infinity, and set their parameter $c$ equal to $-w/t$. Their equation (5.7) then gives \eqref{eq:Hdef}. After rewriting the type-$C$ denominator as $\delta_C$, the summand has one-variable multiplier
+\[
+q^{L\ell^2/2}x^{L\ell}t^\ell\,\frac{(-wx/t;q)_\ell}{(-wtx;q)_\ell},
+\]
+where $(a;q)_\ell=(a;q)_\infty/(aq^\ell;q)_\infty$ for $\ell\in\Z$. The quotient is $1$ at $t=1$, which proves \eqref{eq:H1}. At $t=q$, combine its two telescoping factors with $P_q/P_1$; the resulting multiplier is
+\[
+\frac{y/w}{(1+y/w)(1+wy)}=\frac1{1+w^2+w(y+y^{-1})},\qquad y=xq^\ell.
+\]
+This proves \eqref{eq:Hq}. At $t=w$ the quotient is $(1+x)/(1+xq^\ell)$. Using
+\[
+\delta_C(y)=\prod_i\bigl(y_i^{1/2}+y_i^{-1/2}\bigr)\,\delta_B(y)
+\]
+to cancel this quotient and $w^\ell$ row by row gives \eqref{eq:Hw}. These calculations hold initially where the cited bilateral series converge without poles; analytic continuation gives the stated specializations. The limits needed below are computed explicitly.
+\end{proof}
+
+\subsection{A finite tridiagonal calculation}
+For an increasing tuple $a=(a_1,\dots,a_m)$ define
+\[
+J_a(x)=P_1(x)\frac{\det(\Phi_{a_j}(x_i))_{i,j=1}^m}{\delta_C(x)},\qquad J_k(x)=J_{\rho^{(0)}_k}(x).
+\]
+
+\begin{lemma}\label{lem:tridiag}
+For generic $x$,
+\begin{equation}\label{eq:tridiag}
+\HL_m(1;x;q)-\HL_m(q;x;q)=wJ_1(x).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Put $d=m+1$, so that $L=2d+1$. Reindexing the bilateral sum gives
+\[
+\mu_x[f(y)]=q^{L/2}\mu_x[y^Lf(qy)].
+\]
+Together with $q=w^2$ this implies
+\[
+\Psi_{d+1}+w\Psi_d=\mu_x\left[\frac{y^{d+1}}{1+wy}-\frac{y^{-d-1}}{1+w/y}\right]=0,
+\]
+since the displayed reindexing transforms the second rational term into the first. Multiplying by the denominator in the definition of $\Psi_j$ also gives
+\[
+\Phi_j=(1+w^2)\Psi_j+w(\Psi_{j-1}+\Psi_{j+1}),\qquad \Psi_0=0.
+\]
+Thus $(\Phi_1,\dots,\Phi_d)^\T=U_d(\Psi_1,\dots,\Psi_d)^\T$, where $U_d$ is tridiagonal with entries $w$ above and below the diagonal and diagonal $1+w^2,\dots,1+w^2,1$. Direct multiplication gives
+\[
+\det U_d=1,\qquad (U_d^{-1})_{ij}=(-w)^{|i-j|}\sum_{s=0}^{\min(i,j)-1}w^{2s}.
+\]
+By the complementary-minor formula, the minor of $U_d^{-1}$ formed by its first $m$ rows with column $t$ deleted is $(-1)^{d+t}(U_d)_{t,d}$. It equals $1$ for $t=d$, $-w$ for $t=d-1$, and $0$ otherwise. The Cauchy--Binet formula therefore yields
+\[
+\det(\Psi_j(x_i))_{i,j=1}^m=\det(\Phi_1,\dots,\Phi_m)-w\det(\Phi_1,\dots,\Phi_{m-1},\Phi_{m+1}),
+\]
+where each determinant evaluates its columns at $x_1,\dots,x_m$. Equations \eqref{eq:H1} and \eqref{eq:Hq} now prove the lemma.
+\end{proof}
+
+\subsection{Confluent limits and the affine translation}
+For an increasing tuple $a$ put
+\[
+N_a(q)=\sum_{v\in a+L\Z^m}\chi(v)\,q^{(\|v\|^2-\|a\|^2)/(2L)},\qquad A_0=\frac{(-w;q)_\infty^{2m}}{(q;q)_\infty^\nu},\qquad A_{1/2}=\frac{(-q;q)_\infty^{2m}}{(q;q)_\infty^\nu}.
+\]
+
+\begin{lemma}\label{lem:confluent}
+For every $0\le k\le m$,
+\begin{align}
+J_k(\one)&=A_0\,\frac{N_{\rho^{(0)}_k}}{\chi(\rho^{(0)}_*)},\label{eq:conf0}\\
+J_k(w\one)&=q^{-k/2}A_{1/2}\,\frac{N_{\rho^{(1/2)}_k}}{\chi(\rho^{(1/2)}_*)}.\label{eq:confhalf}
+\end{align}
+Moreover,
+\begin{align}
+\HL_m(w;\one;q)&=A_{1/2}\,\frac{N_{\rho^{(1/2)}_m}}{\chi(\rho^{(1/2)}_*)},\label{eq:Hw1}\\
+\HL_m(w;w\one;q)&=A_0\,\frac{N_{\rho^{(0)}_m}}{\chi(\rho^{(0)}_*)}.\label{eq:Hww}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+Set $x_i=e^{\varepsilon t_i}$ with distinct generic $t_i$, and expand each column in odd powers of $\varepsilon t_i$. Cancellation of the leading Vandermonde determinants gives
+\[
+\lim_{x\to\one}\frac{\det(\Phi_{a_j}(x_i))}{\delta_C(x)}=\frac{N_a}{\chi(\rho^{(0)}_*)}.
+\]
+The same calculation with $\delta_B$ gives the denominator $\chi(\rho^{(1/2)}_*)$. Normal convergence justifies the Taylor expansions. Evaluating the nonsingular infinite products proves \eqref{eq:conf0} and \eqref{eq:Hw1}.
+
+Reindexing the theta series gives the exact affine translation
+\begin{equation}\label{eq:affine}
+\Phi_a(wu)=-q^{-a/2}u^{-L/2}\,\Phi_{L/2-a}(u).
+\end{equation}
+Write $h=\binom m2$ and $s=m+h$. Product formulas for the two finite determinants give, with $Z(u)=\prod_i(1-u_i^{-2})\prod_{i<j}(1-(u_iu_j)^{-1})$,
+\begin{align*}
+\lim_{u\to\one}\frac{D_m(wu;q)}{Z(u)}&=\frac{(q;q)_\infty^\nu}{(1-q)^s},\\
+\lim_{u\to\one}\frac{\delta_C(wu)Z(u)}{\delta_C(u)}&=(w-w^{-1})^s,\\
+\lim_{u\to\one}\frac{\delta_B(wu)Z(u)}{\delta_C(u)}&=(w^{1/2}-w^{-1/2})^m(w-w^{-1})^h.
+\end{align*}
+For example, $\delta_C(u)=\prod_i(u_i-u_i^{-1})\prod_{i<j}(u_j-u_i)(1-(u_iu_j)^{-1})$, which makes the cancellations explicit; the analogous formula for $\delta_B$ replaces each first factor by $u_i^{1/2}-u_i^{-1/2}$. Consequently,
+\begin{align*}
+\lim_{u\to\one}\frac{P_1(wu)\,\delta_C(u)}{\delta_C(wu)}&=(-1)^s2^mq^{s/2}A_{1/2},\\
+\lim_{u\to\one}\frac{P_w(wu)\,\delta_C(u)}{\delta_B(wu)}&=(-1)^sq^{m/4+h/2}A_0.
+\end{align*}
+In \eqref{eq:affine}, reversing the order of the transformed columns contributes $(-1)^h$, and the $m$ minus signs contribute $(-1)^m$; together these cancel $(-1)^s$. For $a=\rho^{(0)}_k$ the transformed increasing tuple is $\rho^{(1/2)}_k$, and $\sum_ja_j=s+k$. Since $\chi(\rho^{(1/2)}_*)=2^{-m}\chi(\rho^{(0)}_*)$, the remaining scalar is exactly $q^{-k/2}$, as in \eqref{eq:confhalf}. For $a=\rho^{(1/2)}_*$ the transformed tuple is $(2,3,\dots,m+1)=\rho^{(0)}_m$, and $\sum_ja_j=m^2/2$; the scalar cancels because $m/4+h/2=m^2/4$. Applying \eqref{eq:Hw} proves \eqref{eq:Hww}. These product cancellations also show that all the limits used exist.
+\end{proof}
+
+\subsection{Contiguity and completion of the proof}
+For brevity write $F_B=F_{2m+1,B,0}$. Subtracting adjacent summands in the defining series gives
+\begin{equation}\label{eq:contig}
+F_B-F_{B+e_i}=q^{(T_{2m+1})_{ii}/2+b_i}\,F_{B+T_{2m+1}e_i}.
+\end{equation}
+Take $B=B(a\one,c)$ and $E=e_{2m}-e_{2m-1}$. Apply \eqref{eq:contig} first at the last coordinate and then at coordinate $2m$ of the shifted vector. Since $T_{2m+1}(e_{2m}+e_{2m+1})=E$, the result is
+\[
+F_{B+E}=q^a\Bigl(q^{-c-1/2}F_B-(1+q^{-c-1/2})F_{B+e_{2m+1}}\Bigr).
+\]
+With $a=-2v$, $c=-v$ and \cref{lem:boundary}, this becomes
+\begin{equation}\label{eq:contig2}
+F_{B+E}=q^{-v-1/2}(-q^{1/2-v};q)_\infty\bigl(\HL_m(1;q^v\one;q)-\HL_m(q;q^v\one;q)\bigr).
+\end{equation}
+
+\begin{proof}[Proof of \cref{thm:basic}]
+For $z=0$, \cref{lem:boundary} and \eqref{eq:contig2} at $v=0$ give
+\[
+S^{(0)}_{m,0}=(-w;q)_\infty J_0(\one),\qquad S^{(0)}_{m,1}=(-w;q)_\infty J_1(\one),
+\]
+the second via \cref{lem:tridiag}. For $k=m$, use \eqref{eq:boundary} with $v=\frac12$, $c=0$:
+\[
+S^{(0)}_{m,m}=(-w;q)_\infty\HL_m(w;w\one;q).
+\]
+Equations \eqref{eq:conf0} and \eqref{eq:Hww} prove the three identities with $z=0$.
+
+At $v=\frac12$, $c=-\frac12$, identity \eqref{eq:boundary} concerns the negative half-shift with $k=0$. Using \eqref{eq:halfshift} and $(-1;q)_\infty=2(-q;q)_\infty$ we obtain
+\[
+S^{(1/2)}_{m,0}=(-q;q)_\infty J_0(w\one).
+\]
+Similarly, \eqref{eq:contig2} at $v=\frac12$ concerns the negative half-shift with $k=1$. Since $S^{(-1/2)}_{m,1}=2q^{-1}S^{(1/2)}_{m,1}$, it gives
+\[
+S^{(1/2)}_{m,1}=w(-q;q)_\infty J_1(w\one).
+\]
+Finally, \eqref{eq:boundary} at $v=0$, $c=\frac12$ yields
+\[
+S^{(1/2)}_{m,m}=(-q;q)_\infty\HL_m(w;\one;q).
+\]
+Equations \eqref{eq:confhalf} and \eqref{eq:Hw1} give the half-shift identities. \Cref{prop:rhs-modular} supplies modularity with exactly the scalar $C(k,z)$, and \eqref{eq:halfshift} supplies the sector $z=-\frac12$. When $m=1$ some of the indices coincide, consistently with the six rank-three pairs.
+\end{proof}
+
+For later use, set
+\[
+B_v=B(-2v\one,-v)\qquad(v\in\Q).
+\]
+By \cref{lem:boundary}, every last-coordinate shift of $B_v$ is a Hall--Littlewood boundary specialization.
+
+\subsection{A worked example}\label{subsec:example}
+We follow one pair through the paper: rank five ($m=2$, $L=7$, $\nu=10$), index $k=1$ and sector $z=\frac12$. In \cref{conj:odd} this is $x=(0,1)$, so
+\[
+B(1,\tfrac12)=(1,-1,0,0,\tfrac12)^\T,\qquad C(1,\tfrac12)=-\frac{55}{336}+\frac{5}{14}-\frac12+\frac9{16}=\frac{43}{168}.
+\]
+In the coordinates of \cref{thm:r5} this point is $u=v=0$, $(x,y)=(0,1)$, $z=\frac12$, and \eqref{eq:r5C} gives the same scalar $(120-168+189-55)/336=43/168$; it is the sixth row of the rank-five table, whose modularity is \cite[(5.34)]{SW26}.
+
+On the companion side, $\rho^{(1/2)}_1=(\frac12,\frac52)$ and $\rho^{(1/2)}_*=(\frac12,\frac32)$, so $\chi(\rho^{(1/2)}_1)=-\frac{15}2$ and $\chi(\rho^{(1/2)}_*)=-\frac32$. Identity \eqref{eq:wron} reads
+\begin{align*}
+F_{5,(1,-1,0,0,1/2),0}(q)&=\frac{(-q;q)_\infty^5}{(q;q)_\infty^{10}}\sum_{v\in(\frac12,\frac52)+7\Z^2}\frac{v_1v_2(v_1^2-v_2^2)}{-3/2}\,q^{(v_1^2+v_2^2-13/2)/14}\\
+&=5+45q+200q^2+715q^3+\cdots,
+\end{align*}
+and the constant term $5=\binom{5}{1}$ agrees with \cref{prop:leading}. This case is covered by \cref{thm:basic}: \eqref{eq:contig2} at $v=\frac12$ expresses the negative half-shift as a difference of two Hall--Littlewood boundary specializations, \cref{lem:tridiag} turns that difference into the single theta minor $wJ_1$, and \eqref{eq:confhalf} evaluates its confluent limit at $x=w\one$. By \cref{prop:rhs-modular}, $q^{43/168}$ times the right-hand side is a modular function, in agreement with the necessity computation.
