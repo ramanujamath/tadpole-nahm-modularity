@@ -1,5 +1,7 @@
 # tadpole-nahm-modularity
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24522137.svg)](https://doi.org/10.5281/zenodo.24522137)
+
 Data and programs for the paper **Modular shifts of tadpole Nahm sums: classifications, companion identities, and boundary calculus**.
 
 For the tadpole matrix $T_r$, the paper studies the rational shifts $(B,C)$ for which the Nahm sum $F_{r,B,C}$ is a modular function. It contains:
@@ -47,3 +49,7 @@ python3 find_rank6_zeros.py 2 3   # rank 6: the nine rational zeros, confirmed e
 ## Requirements
 - Python ≥ 3.10 and NumPy.
 - No computer algebra system is needed for the files in this repository. The rank 7 and 9 computations in `computations/author_data/` use Singular and msolve.
+
+## Citation
+
+Archived version: [doi:10.5281/zenodo.24522137](https://doi.org/10.5281/zenodo.24522137).
